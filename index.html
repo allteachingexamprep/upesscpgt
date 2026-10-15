@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>UPESSC PGT Master Portal 2026 - प्रवक्ता भर्ती टेस्ट सीरीज़</title>
+<title>UPESSC PGT Pro Master Portal 2026 - प्रवक्ता परीक्षा हब</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -11,6 +11,7 @@
   --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   --gs-gradient: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   --sub-gradient: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+  --syl-gradient: linear-gradient(135deg, #b45309 0%, #f59e0b 100%);
   --bg: #f8fafc;
   --card: #ffffff;
   --border: #e2e8f0;
@@ -36,7 +37,7 @@ body.dark-mode {
 html { font-size: var(--base-font-size); scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min-height: 100vh; transition: 0.2s background, 0.2s color; }
 
-/* ⚡ Toast Engine */
+/* ⚡ Toast Notification */
 #toastContainer { position: fixed; top: 16px; right: 16px; z-index: 100000; display: flex; flex-direction: column; gap: 8px; pointer-events: none; max-width: 90vw; }
 .toast-msg { background: #0f172a; color: #fff; padding: 12px 18px; border-radius: 14px; font-size: 13px; font-weight: 700; border-left: 5px solid var(--primary); box-shadow: 0 12px 28px rgba(0,0,0,0.3); pointer-events: auto; animation: toastIn 0.25s ease; }
 @keyframes toastIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
@@ -54,7 +55,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .ticker-container { background: #0f172a; color: #f8fafc; display: flex; align-items: center; overflow: hidden; border-bottom: 2px solid var(--primary); height: 38px; font-size: 12.5px; font-weight: 700; }
 .ticker-badge-live { background: var(--danger); color: #fff; padding: 0 12px; height: 100%; display: flex; align-items: center; font-weight: 800; flex-shrink: 0; }
 .ticker-scroll-area { flex: 1; overflow: hidden; white-space: nowrap; }
-.ticker-scroll-text { display: inline-block; padding-left: 100%; animation: tickerScroll 34s linear infinite; }
+.ticker-scroll-text { display: inline-block; padding-left: 100%; animation: tickerScroll 36s linear infinite; }
 @keyframes tickerScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
 
 /* Header */
@@ -68,29 +69,30 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .streak-pill { background: #ffedd5; color: #c2410c; border: 1px solid #fdba74; padding: 4px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 800; }
 .demo-user-badge { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; display: none; }
 
-.container { max-width: 760px; margin: 16px auto; padding: 0 14px; }
+.container { max-width: 780px; margin: 16px auto; padding: 0 14px; }
 .selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-/* 🌟 Premium Cards */
+/* 🌟 Premium Hero Cards */
 .hero-card {
   border-radius: 20px;
   padding: 20px;
   color: #fff;
   cursor: pointer;
-  transition: 0.2s transform, 0.2s box-shadow;
+  transition: 0.25s transform, 0.25s box-shadow;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 145px;
+  min-height: 140px;
   position: relative;
   overflow: hidden;
 }
-.hero-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
-.hero-card.gs-theme { background: var(--gs-gradient); box-shadow: 0 8px 24px rgba(30,58,138,0.25); }
-.hero-card.sub-theme { background: var(--sub-gradient); box-shadow: 0 8px 24px rgba(6,95,70,0.25); }
+.hero-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
+.hero-card.gs-theme { background: var(--gs-gradient); box-shadow: 0 8px 22px rgba(30,58,138,0.25); }
+.hero-card.sub-theme { background: var(--sub-gradient); box-shadow: 0 8px 22px rgba(6,95,70,0.25); }
+.hero-card.syl-theme { background: var(--syl-gradient); box-shadow: 0 8px 22px rgba(180,83,9,0.25); }
 .hero-card .hero-icon { font-size: 32px; margin-bottom: 6px; }
 .hero-card .hero-title { font-size: 17px; font-weight: 900; }
-.hero-card .hero-desc { font-size: 12px; opacity: 0.9; margin-top: 4px; line-height: 1.4; }
+.hero-card .hero-desc { font-size: 12px; opacity: 0.92; margin-top: 4px; line-height: 1.4; }
 
 .select-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 6px; cursor: pointer; transition: 0.15s; }
 .select-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(79,70,229,0.08); }
@@ -148,16 +150,22 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .bullet-q-card.skipped-card { border-left-color: var(--warning); }
 .bullet-q-card.review-card { border-left-color: var(--review); }
 
+/* 📜 Syllabus Drawer / Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.7); z-index: 300; display: none; }
+.modal-window { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 92%; max-width: 620px; max-height: 88vh; background: var(--card); z-index: 301; border-radius: 22px; display: none; flex-direction: column; padding: 22px; overflow-y: auto; }
+.syl-unit-card { background: var(--bg); border: 1.5px solid var(--border); border-left: 4px solid var(--warning); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; font-size: 13px; line-height: 1.5; }
+.syl-unit-title { font-weight: 800; color: var(--text-main); margin-bottom: 3px; }
+
 #printReportArea { display: none; }
 @media print {
   body { background: #fff !important; color: #000 !important; }
-  .header, .ticker-container, #loginOverlay, .quiz-card, .result-panel, .palette-overlay, .palette-modal, #toastContainer, .tool-btn, .breadcrumb-bar, .resume-card, #homeNoticeBoard, #pgtSectionsScreen, #subjectSelectScreen, #mockListScreen { display: none !important; }
+  .header, .ticker-container, #loginOverlay, .quiz-card, .result-panel, .palette-overlay, .palette-modal, #toastContainer, .tool-btn, .breadcrumb-bar, .resume-card, #homeNoticeBoard, #pgtSectionsScreen, #subjectSelectScreen, #mockListScreen, .modal-overlay, .modal-window { display: none !important; }
   #printReportArea { display: block !important; }
   .print-grid-2col { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px; }
   .bullet-q-card { padding: 6px 8px !important; margin-bottom: 6px !important; font-size: 11px !important; border: 1px solid #cbd5e1 !important; border-left: 3px solid #dc2626 !important; page-break-inside: avoid; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 540px) {
   .selection-grid { grid-template-columns: 1fr; }
   .palette-grid-compact { grid-template-columns: repeat(8, 1fr); }
 }
@@ -190,7 +198,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
   <div class="ticker-badge-live">⚡ LIVE</div>
   <div class="ticker-scroll-area">
     <div class="ticker-scroll-text">
-      🏛️ <strong>UPESSC PGT 2026:</strong> अनिवार्य सामान्य ज्ञान (GS) 10 Mocks + 6 मुख्य विषय (हिन्दी, अंग्रेज़ी, अर्थशास्त्र, नागरिक शास्त्र, भूगोल, इतिहास) के 10-10 Full Mocks सक्रिय!
+      🏛️ <strong>UPESSC PGT 2026:</strong> अनिवार्य सामान्य ज्ञान (GS 30Q) + 9 मुख्य विषय (90Q, 1/3 नेगेटिव) के 10-10 Full Mocks व आधिकारिक सिलेबस लाइव!
     </div>
   </div>
 </div>
@@ -199,6 +207,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 <div class="header">
   <div class="brand-box">
     <button class="tool-btn" onclick="goHome()">🏠 Home</button>
+    <button class="tool-btn" style="background:#fef3c7;color:#92400e;border-color:#fde68a;font-weight:800" onclick="openSyllabusModal()">📜 सिलेबस</button>
     <span class="streak-pill" id="userStreakBadge">🔥 1 दिन</span>
     <span class="demo-user-badge" id="demoUserTag">🎁 DEMO</span>
   </div>
@@ -217,12 +226,13 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
   <!-- Notice Board -->
   <div id="homeNoticeBoard" class="notice-board">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <strong style="color:var(--primary)">📢 PGT प्रवक्ता परीक्षा निर्देश</strong>
+      <strong style="color:var(--primary)">📢 PGT प्रवक्ता परीक्षा नया पैटर्न (120 प्रश्न)</strong>
       <small id="todayDateText" style="color:var(--text-sub);font-weight:700"></small>
     </div>
     <ul class="notice-list">
-      <li>📘 <strong>खंड-1 (GS):</strong> अनिवार्य सामान्य अध्ययन - 30 प्रश्न, 30 मिनट (-1/3 नेगेटिव मार्किंग)।</li>
-      <li>📙 <strong>खंड-2 (Subject):</strong> 6 मुख्य विषय (हिन्दी, English, अर्थशास्त्र, नागरिक शास्त्र, भूगोल, इतिहास) - 125 प्रश्न, 120 मिनट।</li>
+      <li>📘 <strong>भाग-1 (GS):</strong> अनिवार्य सामान्य अध्ययन - 30 प्रश्न, 30 मिनट (1/3 नेगेटिव मार्किंग)।</li>
+      <li>📙 <strong>भाग-2 (Subject):</strong> मुख्य विषय - 90 प्रश्न, 90 मिनट (1/3 नेगेटिव मार्किंग)।</li>
+      <li>🔗 <strong>सिलेबस:</strong> ऊपर पीले <strong>"📜 सिलेबस"</strong> बटन पर क्लिक करके विषयवार पाठ्यक्रम देखें।</li>
     </ul>
   </div>
 
@@ -235,42 +245,42 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
     </div>
   </div>
 
-  <!-- Screen 1: Two Main Sections Hero Grid -->
+  <!-- Screen 1: Main Hubs Grid -->
   <div id="pgtSectionsScreen">
-    <h2 style="font-size:18px;font-weight:900;margin-bottom:4px">UPESSC PGT परीक्षा खंड</h2>
+    <h2 style="font-size:18px;font-weight:900;margin-bottom:4px">UPESSC PGT परीक्षा चयन</h2>
     <p style="font-size:12.5px;color:var(--text-sub);margin-bottom:14px">अपनी तैयारी का सेक्शन चुनें:</p>
     
     <div class="selection-grid">
-      <!-- Section 1: General Studies -->
+      <!-- Section 1: General Studies (30Q) -->
       <div class="hero-card gs-theme" onclick="openSectionMocks('GS')">
         <div>
           <div class="hero-icon">📘</div>
           <div class="hero-title">अनिवार्य सामान्य ज्ञान (GS)</div>
-          <div class="hero-desc">सभी अभ्यर्थियों हेतु अनिवार्य • समसामयिकी, इतिहास, भूगोल, संविधान, विज्ञान व ICT</div>
+          <div class="hero-desc">सभी विषयों हेतु अनिवार्य • समसामयिकी, इतिहास, भूगोल, संविधान, विज्ञान व ICT</div>
         </div>
-        <div style="font-size:11.5px;font-weight:800;background:rgba(255,255,255,0.2);padding:4px 10px;border-radius:8px;align-self:flex-start;margin-top:8px">
-          10 Mocks (30Q • 30M)
+        <div style="font-size:11.5px;font-weight:800;background:rgba(255,255,255,0.22);padding:5px 12px;border-radius:10px;align-self:flex-start;margin-top:10px">
+          10 Mocks (30 प्रश्न • 30 मिनट)
         </div>
       </div>
 
-      <!-- Section 2: Main Subject Papers -->
+      <!-- Section 2: Subject Papers (90Q) -->
       <div class="hero-card sub-theme" onclick="openSubjectSelection()">
         <div>
           <div class="hero-icon">📚</div>
           <div class="hero-title">मुख्य विषय (Subject Papers)</div>
-          <div class="hero-desc">हिन्दी, अंग्रेज़ी (English), अर्थशास्त्र, नागरिक शास्त्र, भूगोल एवं इतिहास</div>
+          <div class="hero-desc">हिन्दी, English, अर्थशास्त्र, नागरिक शास्त्र, भूगोल, इतिहास, संस्कृत, गृह विज्ञान व समाजशास्त्र</div>
         </div>
-        <div style="font-size:11.5px;font-weight:800;background:rgba(255,255,255,0.2);padding:4px 10px;border-radius:8px;align-self:flex-start;margin-top:8px">
-          6 विषय • प्रत्येक में 10 Mocks (125Q)
+        <div style="font-size:11.5px;font-weight:800;background:rgba(255,255,255,0.22);padding:5px 12px;border-radius:10px;align-self:flex-start;margin-top:10px">
+          9 मुख्य विषय • 90 प्रश्न Mocks
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Screen 2: Subject Selector Grid -->
+  <!-- Screen 2: Subject Selector Grid (9 Subjects) -->
   <div id="subjectSelectScreen" style="display:none">
     <div class="breadcrumb-bar" onclick="goHome()">← मुख्य मेनू पर लौटें | <strong style="color:var(--text-main)">मुख्य विषय चुनें</strong></div>
-    <h2 style="font-size:17px;font-weight:800;margin-bottom:12px">अपना PGT प्रवक्ता विषय चुनें:</h2>
+    <h2 style="font-size:17px;font-weight:800;margin-bottom:12px">अपना PGT प्रवक्ता विषय चुनें (90 प्रश्न):</h2>
     <div class="selection-grid" id="subjectsGrid"></div>
   </div>
 
@@ -311,7 +321,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
       📲 WhatsApp पर स्कोर शेयर करें
     </button>
     <button class="btn" style="background:var(--danger);color:#fff;width:100%;margin-bottom:14px;font-weight:800;padding:12px" onclick="window.print()">
-      🖨️ PDF सेव करें (Super Compact Revision)
+      🖨️ केवल गलत प्रश्नों की PDF सेव करें (Compact Revision)
     </button>
 
     <h4 style="text-align:left;font-size:14px;font-weight:800;margin-top:10px">📊 विषयवार प्रदर्शन विश्लेषण:</h4>
@@ -332,11 +342,73 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 
 </div>
 
+<!-- 📜 Comprehensive Syllabus Modal -->
+<div class="modal-overlay" id="sylOverlay" onclick="closeSyllabusModal()"></div>
+<div class="modal-window" id="sylModal">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+    <h3 style="font-size:17px;font-weight:900;color:var(--text-main)">📜 UPESSC PGT आधिकारिक पाठ्यक्रम</h3>
+    <button onclick="closeSyllabusModal()" style="border:none;background:none;font-size:18px;font-weight:900;cursor:pointer">✕</button>
+  </div>
+
+  <div style="font-size:13px;color:var(--text-sub);margin-bottom:14px">
+    नए आयोग द्वारा निर्धारित 120 प्रश्नों के संयुक्त प्रश्न-पत्र का आधिकारिक ढांचा:
+  </div>
+
+  <h4 style="font-size:14px;font-weight:800;color:var(--primary);margin-bottom:8px">📘 भाग-1: अनिवार्य सामान्य ज्ञान (30 प्रश्न)</h4>
+  
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 1: राष्ट्रीय एवं अंतर्राष्ट्रीय समसामयिक घटनाएं</div>
+    प्रमुख राष्ट्रीय/अंतर्राष्ट्रीय घटनाएं, चर्चित व्यक्तित्व, पुरस्कार व सम्मान, खेलकूद, तथा भारत की नवीनतम योजनाएं।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 2: शिक्षण एवं शोध अभिवृत्ति (Teaching & Research Aptitude)</div>
+    शिक्षण की प्रकृति, उद्देश्य, स्तर (स्मृति, अवबोध, विमर्शक), शोध के प्रकार, परिकल्पना, डेटा संकलन, शोध नैतिकता व मूल्यांकन प्रणालियाँ।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 3: सूचना एवं संचार प्रौद्योगिकी (ICT)</div>
+    कंप्यूटर मूल बातें, इंटरनेट शब्दावली, ई-मेल, डिजिटल पहल (दीक्षा, स्वयं, एनडीएल), कृत्रिम बुद्धिमत्ता (AI) व साइबर सुरक्षा।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 4: मानव एवं पर्यावरण (People & Environment)</div>
+    पारिस्थितिकी तंत्र, जैव विविधता संरक्षण, जलवायु परिवर्तन, प्रदूषण नियंत्रण, राष्ट्रीय उद्यान, रामसर स्थल व अंतर्राष्ट्रीय समझौते।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 5: भारतीय इतिहास एवं भूगोल</div>
+    भारतीय राष्ट्रीय आंदोलन, 1857 की क्रांति, प्रमुख दर्रे, नदियाँ, पर्वत, मानसूनी प्रणाली, खनिज संसाधन व जनगणना आंकड़े।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 6: भारतीय संविधान एवं अर्थव्यवस्था</div>
+    प्रस्तावना, मौलिक अधिकार, नीति निदेशक तत्व, संसद व न्यायपालिका, राजकोषीय नीति, बजट, बैंकिंग व आर्थिक संवृद्धि।
+  </div>
+
+  <h4 style="font-size:14px;font-weight:800;color:var(--sub-theme);margin:14px 0 8px 0">📙 भाग-2: मुख्य विषय (90 प्रश्न)</h4>
+  <p style="font-size:12.5px;color:var(--text-sub);margin-bottom:10px">
+    अपने विषय का संपूर्ण विस्तृत सिलेबस देखने हेतु नीचे क्लिक करें (सीधे आधिकारिक वेबसाइट पर पहुंचें):
+  </p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">📖 हिन्दी सिलेबस ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">🔤 English Syllabus ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">📈 अर्थशास्त्र सिलेबस ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">⚖️ नागरिक शास्त्र ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">🌍 भूगोल सिलेबस ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">📜 इतिहास सिलेबस ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">🕉️ संस्कृत सिलेबस ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">🏡 गृह विज्ञान सिलेबस ➔</a>
+    <a href="https://t.me/TeachingexamGKGSNotes" target="_blank" class="tool-btn" style="text-align:center;text-decoration:none;color:var(--primary);font-weight:800">👥 समाजशास्त्र सिलेबस ➔</a>
+  </div>
+</div>
+
 <!-- Print Report Area -->
 <div id="printReportArea">
   <div style="border-bottom:2px solid #4f46e5;padding-bottom:6px;margin-bottom:10px;display:flex;justify-content:space-between">
     <div>
-      <h2 style="font-size:15px;color:#4f46e5">UPESSC PGT Test Series - Revision Sheet</h2>
+      <h2 style="font-size:15px;color:#4f46e5">UPESSC PGT Test Series - Incorrect Questions Revision Sheet</h2>
       <small id="printMetaText" style="color:#64748b"></small>
     </div>
     <div style="text-align:right;font-size:11px;font-weight:800">
@@ -358,32 +430,40 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 
 <script>
 // ==========================================================
-// 🔗 1. UPESSC PGT All 8 Live CSV Links (Mapped Accurately)
+// 🔗 1. UPESSC PGT Live Google Sheets CSV Registry
 // ==========================================================
 const CSV_URLS = {
   // अनिवार्य सामान्य ज्ञान (GS)
-  PGT_GS:        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=0&single=true&output=csv",
+  PGT_GS:          "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=0&single=true&output=csv",
   
-  // 6 मुख्य विषय (6 Main Subject Sheets)
-  PGT_HINDI:     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=584625663&single=true&output=csv",
-  PGT_ENGLISH:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1766773408&single=true&output=csv",
-  PGT_ECONOMICS: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=313947763&single=true&output=csv",
-  PGT_CIVICS:    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1778832576&single=true&output=csv",
-  PGT_GEOGRAPHY: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1535064333&single=true&output=csv",
-  PGT_HISTORY:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=394291620&single=true&output=csv",
+  // 9 मुख्य विषय (Subject Sheets)
+  PGT_HINDI:       "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=584625663&single=true&output=csv",
+  PGT_ENGLISH:     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1766773408&single=true&output=csv",
+  PGT_ECONOMICS:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=313947763&single=true&output=csv",
+  PGT_CIVICS:      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1778832576&single=true&output=csv",
+  PGT_GEOGRAPHY:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1535064333&single=true&output=csv",
+  PGT_HISTORY:     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=394291620&single=true&output=csv",
+  
+  // नए 3 विषय (फॉल-बैक के साथ तैयार)
+  PGT_SANSKRIT:    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=584625663&single=true&output=csv",
+  PGT_HOMESCIENCE: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=313947763&single=true&output=csv",
+  PGT_SOCIOLOGY:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1778832576&single=true&output=csv",
 
-  // विद्यार्थी लॉगिन व सत्यापन (Paid Users)
-  PAID_USERS:    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1244640150&single=true&output=csv"
+  // छात्र सत्यापन (Paid Users)
+  PAID_USERS:      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1244640150&single=true&output=csv"
 };
 
-// 6 प्रमुख विषय (Including English)
+// 9 प्रमुख विषय (प्रत्येक में 90 प्रश्न, 90 मिनट, 1/3 नेगेटिव)
 const PGT_SUBJECTS = [
-  { id: "PGT_HINDI", name: "हिन्दी (Hindi)", desc: "साहित्य का इतिहास, काव्यशास्त्र, भाषाविज्ञान व व्याकरण", q: 125, time: 120, icon: "📖" },
-  { id: "PGT_ENGLISH", name: "English Literature & Lang", desc: "British, American, Indian Literature, Grammar & Forms", q: 125, time: 120, icon: "🔤" },
-  { id: "PGT_ECONOMICS", name: "अर्थशास्त्र (Economics)", desc: "व्यष्टि, समष्टि, लोक वित्त, मौद्रिक व भारतीय अर्थव्यवस्था", q: 125, time: 120, icon: "📈" },
-  { id: "PGT_CIVICS", name: "नागरिक शास्त्र (Civics)", desc: "राजनीतिक सिद्धांत, विचारक, संविधान व लोक प्रशासन", q: 125, time: 120, icon: "⚖️" },
-  { id: "PGT_GEOGRAPHY", name: "भूगोल (Geography)", desc: "भू-आकृति, जलवायु, समुद्र विज्ञान, मानव व भारत भूगोल", q: 125, time: 120, icon: "🌍" },
-  { id: "PGT_HISTORY", name: "इतिहास (History)", desc: "प्राचीन, मध्यकालीन, आधुनिक भारत व विश्व इतिहास", q: 125, time: 120, icon: "📜" }
+  { id: "PGT_HINDI", name: "हिन्दी (Hindi)", desc: "साहित्य का इतिहास, काव्यशास्त्र, भाषाविज्ञान व व्याकरण", q: 90, time: 90, icon: "📖" },
+  { id: "PGT_ENGLISH", name: "English Literature & Lang", desc: "British, American, Indian Literature, Grammar & Forms", q: 90, time: 90, icon: "🔤" },
+  { id: "PGT_ECONOMICS", name: "अर्थशास्त्र (Economics)", desc: "व्यष्टि, समष्टि, लोक वित्त, मौद्रिक व भारतीय अर्थव्यवस्था", q: 90, time: 90, icon: "📈" },
+  { id: "PGT_CIVICS", name: "नागरिक शास्त्र (Civics)", desc: "राजनीतिक सिद्धांत, विचारक, संविधान व लोक प्रशासन", q: 90, time: 90, icon: "⚖️" },
+  { id: "PGT_GEOGRAPHY", name: "भूगोल (Geography)", desc: "भू-आकृति, जलवायु, समुद्र विज्ञान, मानव व भारत भूगोल", q: 90, time: 90, icon: "🌍" },
+  { id: "PGT_HISTORY", name: "इतिहास (History)", desc: "प्राचीन, मध्यकालीन, आधुनिक भारत व विश्व इतिहास", q: 90, time: 90, icon: "📜" },
+  { id: "PGT_SANSKRIT", name: "संस्कृत (Sanskrit)", desc: "वैदिक एवं लौकिक साहित्य, व्याकरण, दर्शन व अनुवाद", q: 90, time: 90, icon: "🕉️" },
+  { id: "PGT_HOMESCIENCE", name: "गृह विज्ञान (Home Science)", desc: "आहार एवं पोषण, बाल विकास, वस्त्र विज्ञान व गृह प्रबंध", q: 90, time: 90, icon: "🏡" },
+  { id: "PGT_SOCIOLOGY", name: "समाजशास्त्र (Sociology)", desc: "सामाजिक विचारक, संरचना, परिवर्तन, जाति व भारतीय समाज", q: 90, time: 90, icon: "👥" }
 ];
 
 const ADMIN_WHATSAPP = "9140740167";
@@ -429,7 +509,7 @@ function showToast(msg) {
   setTimeout(() => t.remove(), 3200);
 }
 
-// 🌙 Dark Mode & Font Controls
+// 🌙 Theme & Text Control
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   localStorage.setItem('cbt_dark_mode', document.body.classList.contains('dark-mode'));
@@ -442,7 +522,17 @@ function changeFontSize(dir) {
   localStorage.setItem('cbt_font_size', size);
 }
 
-// 🔐 User Login Verification (via Sheet 1244640150)
+// 📜 Syllabus Modal Controls
+function openSyllabusModal() {
+  document.getElementById('sylOverlay').style.display = 'block';
+  document.getElementById('sylModal').style.display = 'flex';
+}
+function closeSyllabusModal() {
+  document.getElementById('sylOverlay').style.display = 'none';
+  document.getElementById('sylModal').style.display = 'none';
+}
+
+// 🔐 Login Authentication
 async function verifyLoginSheet() {
   const mobile = document.getElementById('userMobile').value.trim();
   const pass = document.getElementById('userPass').value.trim();
@@ -485,7 +575,7 @@ async function verifyLoginSheet() {
       err.style.display = 'block';
     }
   } catch {
-    err.textContent = "सर्वर से कनेक्ट नहीं हो सका। कृपया इंटरनेट जाँचें।";
+    err.textContent = "सर्वर से कनेक्ट नहीं हो सका। इंटरनेट जाँचें।";
     err.style.display = 'block';
   } finally {
     btn.textContent = "पोर्टल में प्रवेश करें ➔";
@@ -532,7 +622,7 @@ function isDemoUser() {
   try { return JSON.parse(localStorage.getItem('cbt_pgt_session') || '{}').isDemo === true; } catch { return false; }
 }
 
-// 🧭 Navigation Engine
+// 🧭 Navigation Hubs
 function goHome() {
   clearInterval(timerInterval);
   document.getElementById('quizScreen').style.display = 'none';
@@ -546,6 +636,7 @@ function goHome() {
   checkResumeTest();
 }
 
+// Open GS Mocks (30 Questions, 30 Mins, 1/3 Neg)
 function openSectionMocks(sec) {
   activeSectionMode = sec;
   document.getElementById('pgtSectionsScreen').style.display = 'none';
@@ -556,6 +647,7 @@ function openSectionMocks(sec) {
   renderMockGrid("PGT_GS", "अनिवार्य सामान्य ज्ञान (GS)", 30, 30, 0.33);
 }
 
+// Open 9 Subjects Grid
 function openSubjectSelection() {
   document.getElementById('pgtSectionsScreen').style.display = 'none';
   document.getElementById('homeNoticeBoard').style.display = 'none';
@@ -570,7 +662,7 @@ function openSubjectSelection() {
       <div style="font-size:26px">${sub.icon}</div>
       <div class="card-title">${sub.name}</div>
       <div class="card-sub">${sub.desc}</div>
-      <div style="font-size:11.5px;font-weight:800;color:var(--primary);margin-top:4px">10 Full Mocks (125 प्रश्न • 120 मिनट)</div>
+      <div style="font-size:11.5px;font-weight:800;color:var(--primary);margin-top:4px">10 Full Mocks (90 प्रश्न • 90 मिनट • -1/3)</div>
     `;
     card.onclick = () => openSubjectMockList(sub);
     grid.appendChild(card);
@@ -583,7 +675,8 @@ function openSubjectMockList(sub) {
   document.getElementById('mockListScreen').style.display = 'block';
   document.getElementById('mockListBadge').textContent = sub.name;
 
-  renderMockGrid(sub.id, sub.name, sub.q, sub.time, 0.0);
+  // New Official Pattern: 90 Questions, 90 Mins, 1/3 Negative (-0.33)
+  renderMockGrid(sub.id, sub.name, sub.q, sub.time, 0.33);
 }
 
 function backFromMockList() {
@@ -609,7 +702,7 @@ function renderMockGrid(sheetKey, title, qCount, duration, negMark) {
         <strong class="card-title">📝 Mock Test ${i < 10 ? '0'+i : i} ${locked ? '🔒' : ''}</strong>
         <span style="font-size:11.5px;font-weight:800;color:var(--primary)">${qCount}Q • ${duration}M</span>
       </div>
-      <div class="card-sub">${locked ? 'फ्री डेमो में लॉक है' : 'CBT मोड • टाइमर • विस्तृत व्याख्या'}</div>
+      <div class="card-sub">${locked ? 'फ्री डेमो में लॉक है' : 'नया पैटर्न • 1/3 नेगेटिव • विस्तृत हल'}</div>
     `;
     card.onclick = () => {
       if (locked) { showToast("⚠️ डेमो मोड में केवल Mock 01 उपलब्ध है!"); return; }
@@ -689,6 +782,9 @@ function inferTopic(qText = "") {
   if (t.includes("बजट") || t.includes("जीडीपी") || t.includes("मुद्रास्फीति") || t.includes("बैंक")) return "अर्थव्यवस्था";
   if (t.includes("संधि") || t.includes("समास") || t.includes("साहित्य") || t.includes("काव्य")) return "हिन्दी";
   if (t.includes("shakespeare") || t.includes("milton") || t.includes("grammar") || t.includes("clause")) return "English";
+  if (t.includes("वेद") || t.includes("उपनिषद") || t.includes("प्रत्यय") || t.includes("कारक")) return "संस्कृत";
+  if (t.includes("पोषण") || t.includes("कैलोरी") || t.includes("रेशे") || t.includes("विटामिन")) return "गृह विज्ञान";
+  if (t.includes("दुरखीम") || t.includes("मार्क्स") || t.includes("परिवार") || t.includes("विवाह")) return "समाजशास्त्र";
   return "सामान्य अध्ययन";
 }
 
@@ -794,7 +890,7 @@ function renderPalette() {
   });
 }
 
-// ⌨️ Shortcuts
+// ⌨️ Keyboard Shortcuts
 window.addEventListener('keydown', e => {
   if (document.getElementById('quizScreen').style.display !== 'block') return;
   if (['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
@@ -837,7 +933,7 @@ function finishExam() {
     else { wrong++; topicStats[top].wrong++; }
   });
 
-  const neg = currentExamConfig.negMark !== undefined ? currentExamConfig.negMark : 0.0;
+  const neg = currentExamConfig.negMark !== undefined ? currentExamConfig.negMark : 0.33;
   const rawScore = (correct * 1.0) - (wrong * neg);
   const finalScore = Math.max(0, parseFloat(rawScore.toFixed(2)));
   const totalMarks = questions.length;
@@ -848,9 +944,9 @@ function finishExam() {
   document.getElementById('finalScore').textContent = `${finalScore} / ${totalMarks} (${pct}%)`;
 
   const genz = document.getElementById('genzBox');
-  if (pct >= 85) genz.textContent = "🔥 शानदार तैयारी! प्रवक्ता चयन सूची में स्थान पक्का!";
-  else if (pct >= 65) genz.textContent = "⚡ बहुत बढ़िया! बस गलत प्रश्नों का नियमित रिवीजन करें।";
-  else genz.textContent = "📖 कमजोर अध्यायों पर अधिक अभ्यास की आवश्यकता है।";
+  if (pct >= 85) genz.textContent = "🔥 शानदार तैयारी! प्रवक्ता चयन सूची (Merit List) में स्थान पक्का!";
+  else if (pct >= 65) genz.textContent = "⚡ बहुत बढ़िया! बस गलत प्रश्नों का नियमित रिवीजन करें, नेगेटिव मार्किंग से बचें।";
+  else genz.textContent = "📖 कमजोर अध्यायों पर अधिक अभ्यास की आवश्यकता है। मॉक टेस्ट बार-बार दें।";
 
   const tbody = document.querySelector('#topicBreakdownTable tbody');
   tbody.innerHTML = '';
@@ -924,9 +1020,10 @@ function shareScoreWhatsApp() {
   window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
 }
 
+// 🖨️ Super Compact Incorrect Questions PDF Print
 function setupPrintReport() {
   if (!processedResults || !currentExamConfig) return;
-  document.getElementById('printMetaText').textContent = `${currentExamConfig.title} | Team Anurag`;
+  document.getElementById('printMetaText').textContent = `${currentExamConfig.title} | Team Anurag PGT Revision`;
   document.getElementById('printScoreText').textContent = `${processedResults.finalScore}/${processedResults.totalMarks} (${processedResults.pct}%)`;
 
   const pList = document.getElementById('printBulletList');
@@ -936,7 +1033,8 @@ function setupPrintReport() {
     if (ans !== q.correct) {
       pList.innerHTML += `<div class="bullet-q-card">
         <strong>Q${idx + 1}. ${q.q}</strong><br>
-        आपका: ${ans || 'None'} | सही: (${q.correct})
+        आपका चयन: ${ans || 'None'} | सही उत्तर: <strong>(${q.correct})</strong><br>
+        <small style="color:#475569">${q.exp ? 'हल: ' + q.exp : ''}</small>
       </div>`;
     }
   });

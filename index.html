@@ -37,12 +37,10 @@ body.dark-mode {
 html { font-size: var(--base-font-size); scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min-height: 100vh; transition: 0.2s background, 0.2s color; }
 
-/* ⚡ Toast Notification */
 #toastContainer { position: fixed; top: 16px; right: 16px; z-index: 100000; display: flex; flex-direction: column; gap: 8px; pointer-events: none; max-width: 90vw; }
 .toast-msg { background: #0f172a; color: #fff; padding: 12px 18px; border-radius: 14px; font-size: 13px; font-weight: 700; border-left: 5px solid var(--primary); box-shadow: 0 12px 28px rgba(0,0,0,0.3); pointer-events: auto; animation: toastIn 0.25s ease; }
 @keyframes toastIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* 🔐 Login Modal */
 #loginOverlay { position: fixed; inset: 0; background: rgba(15,23,42,0.92); backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
 .login-card { background: var(--card); border-radius: 24px; width: 100%; max-width: 410px; padding: 28px 22px; text-align: center; border: 1.5px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
 .login-field { width: 100%; padding: 13px 15px; margin-bottom: 12px; border: 1.5px solid var(--border); border-radius: 14px; background: var(--bg); color: var(--text-main); font-size: 14.5px; outline: none; transition: 0.2s; }
@@ -51,14 +49,12 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .btn-demo-mode { background: #fef3c7; color: #92400e; border: 1.5px dashed var(--warning); padding: 11px; border-radius: 14px; width: 100%; font-size: 13.5px; font-weight: 800; cursor: pointer; margin-top: 10px; }
 .btn-wa-admission { display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; background: var(--whatsapp); color: #fff; padding: 11px 16px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 13px; width: 100%; box-shadow: 0 4px 14px rgba(37,211,102,0.25); }
 
-/* 🔴 Ticker Tape */
 .ticker-container { background: #0f172a; color: #f8fafc; display: flex; align-items: center; overflow: hidden; border-bottom: 2px solid var(--primary); height: 38px; font-size: 12.5px; font-weight: 700; }
 .ticker-badge-live { background: var(--danger); color: #fff; padding: 0 12px; height: 100%; display: flex; align-items: center; font-weight: 800; flex-shrink: 0; }
 .ticker-scroll-area { flex: 1; overflow: hidden; white-space: nowrap; }
 .ticker-scroll-text { display: inline-block; padding-left: 100%; animation: tickerScroll 36s linear infinite; }
 @keyframes tickerScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
 
-/* Header */
 .header { background: var(--card); border-bottom: 1.5px solid var(--border); padding: 10px 14px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
 .brand-box { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .header-actions { display: flex; align-items: center; gap: 5px; }
@@ -72,7 +68,6 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .container { max-width: 780px; margin: 16px auto; padding: 0 14px; }
 .selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-/* 🌟 Premium Hero Cards */
 .hero-card {
   border-radius: 20px;
   padding: 20px;
@@ -108,7 +103,6 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .resume-card { display: none; background: #f0fdf4; border: 2px solid #16a34a; border-radius: 16px; padding: 14px; margin-bottom: 16px; cursor: pointer; align-items: center; gap: 12px; }
 .resume-card.show { display: flex; }
 
-/* CBT Quiz Screen */
 .quiz-card { display: none; background: var(--card); border: 1.5px solid var(--border); border-radius: 22px; padding: 22px 18px; }
 .question-box { font-size: 1.08rem; font-weight: 700; line-height: 1.6; margin-bottom: 20px; }
 .options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
@@ -125,7 +119,6 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .btn-review { background: var(--review-bg); color: var(--review); border: 1.5px solid #c4b5fd; }
 .btn-review.active { background: var(--review); color: #fff; }
 
-/* Palette */
 .palette-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 200; display: none; }
 .palette-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 92%; max-width: 440px; max-height: 85vh; background: var(--card); z-index: 201; border-radius: 20px; display: none; flex-direction: column; padding: 18px; }
 .palette-grid-compact { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; overflow-y: auto; max-height: 55vh; padding: 4px 0; }
@@ -134,7 +127,6 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .p-box.review { background: var(--review) !important; }
 .p-box.current { outline: 2.5px solid #0f172a; }
 
-/* Result Panel */
 .result-panel { display: none; background: var(--card); border: 1.5px solid var(--border); border-radius: 22px; padding: 24px 18px; text-align: center; }
 .score-huge { font-size: 36px; font-weight: 900; color: var(--primary); font-family: 'JetBrains Mono', monospace; margin: 6px 0; }
 .genz-feedback-box { border-radius: 14px; padding: 12px; margin: 12px 0; font-size: 14px; font-weight: 800; border: 1.5px dashed; }
@@ -150,7 +142,6 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .bullet-q-card.skipped-card { border-left-color: var(--warning); }
 .bullet-q-card.review-card { border-left-color: var(--review); }
 
-/* 📜 Syllabus Drawer / Modal */
 .modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.7); z-index: 300; display: none; }
 .modal-window { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 92%; max-width: 620px; max-height: 88vh; background: var(--card); z-index: 301; border-radius: 22px; display: none; flex-direction: column; padding: 22px; overflow-y: auto; }
 .syl-unit-card { background: var(--bg); border: 1.5px solid var(--border); border-left: 4px solid var(--warning); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; font-size: 13px; line-height: 1.5; }
@@ -198,7 +189,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
   <div class="ticker-badge-live">⚡ LIVE</div>
   <div class="ticker-scroll-area">
     <div class="ticker-scroll-text">
-      🏛️ <strong>UPESSC PGT 2026:</strong> अनिवार्य सामान्य ज्ञान (GS 30Q) + 9 मुख्य विषय (90Q, 1/3 नेगेटिव) के 10-10 Full Mocks व आधिकारिक सिलेबस लाइव!
+      🏛️ <strong>UPESSC PGT 2026:</strong> अनिवार्य सामान्य ज्ञान (GS 30Q) + मुख्य विषय (90Q) + 5 'Must-Do' फाइनल सिलेक्शन मॉक्स (बजट 2024-25, आर्थिक सर्वेक्षण, राष्ट्रीय समसामयिकी व सांख्यिकी) लाइव!
     </div>
   </div>
 </div>
@@ -226,13 +217,13 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
   <!-- Notice Board -->
   <div id="homeNoticeBoard" class="notice-board">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <strong style="color:var(--primary)">📢 PGT प्रवक्ता परीक्षा नया पैटर्न (120 प्रश्न)</strong>
+      <strong style="color:var(--primary)">📢 PGT प्रवक्ता चयन परीक्षा मास्टर सीरीज़</strong>
       <small id="todayDateText" style="color:var(--text-sub);font-weight:700"></small>
     </div>
     <ul class="notice-list">
       <li>📘 <strong>भाग-1 (GS):</strong> अनिवार्य सामान्य अध्ययन - 30 प्रश्न, 30 मिनट (1/3 नेगेटिव मार्किंग)।</li>
       <li>📙 <strong>भाग-2 (Subject):</strong> मुख्य विषय - 90 प्रश्न, 90 मिनट (1/3 नेगेटिव मार्किंग)।</li>
-      <li>🔗 <strong>सिलेबस:</strong> ऊपर पीले <strong>"📜 सिलेबस"</strong> बटन पर क्लिक करके विषयवार पाठ्यक्रम देखें।</li>
+      <li>🔥 <strong>Must-Do स्पेशल मॉक्स (11 से 17):</strong> बजट 2024-25, आर्थिक सर्वेक्षण, समसामयिकी व सांख्यिकी पर आधारित बिना हल किए परीक्षा में न बैठें!</li>
     </ul>
   </div>
 
@@ -251,7 +242,6 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
     <p style="font-size:12.5px;color:var(--text-sub);margin-bottom:14px">अपनी तैयारी का सेक्शन चुनें:</p>
     
     <div class="selection-grid">
-      <!-- Section 1: General Studies (30Q) -->
       <div class="hero-card gs-theme" onclick="openSectionMocks('GS')">
         <div>
           <div class="hero-icon">📘</div>
@@ -259,11 +249,10 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
           <div class="hero-desc">सभी विषयों हेतु अनिवार्य • समसामयिकी, इतिहास, भूगोल, संविधान, विज्ञान व ICT</div>
         </div>
         <div style="font-size:11.5px;font-weight:800;background:rgba(255,255,255,0.22);padding:5px 12px;border-radius:10px;align-self:flex-start;margin-top:10px">
-          10 Mocks (30 प्रश्न • 30 मिनट)
+          15 Mocks (30 प्रश्न • 30 मिनट)
         </div>
       </div>
 
-      <!-- Section 2: Subject Papers (90Q) -->
       <div class="hero-card sub-theme" onclick="openSubjectSelection()">
         <div>
           <div class="hero-icon">📚</div>
@@ -277,17 +266,17 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
     </div>
   </div>
 
-  <!-- Screen 2: Subject Selector Grid (9 Subjects) -->
+  <!-- Screen 2: Subject Selector Grid -->
   <div id="subjectSelectScreen" style="display:none">
     <div class="breadcrumb-bar" onclick="goHome()">← मुख्य मेनू पर लौटें | <strong style="color:var(--text-main)">मुख्य विषय चुनें</strong></div>
     <h2 style="font-size:17px;font-weight:800;margin-bottom:12px">अपना PGT प्रवक्ता विषय चुनें (90 प्रश्न):</h2>
     <div class="selection-grid" id="subjectsGrid"></div>
   </div>
 
-  <!-- Screen 3: Mock Tests Grid (01 to 10) -->
+  <!-- Screen 3: Mock Tests Grid -->
   <div id="mockListScreen" style="display:none">
     <div class="breadcrumb-bar" onclick="backFromMockList()">← वापस लौटें | <strong id="mockListBadge" style="color:var(--text-main)"></strong></div>
-    <h2 style="font-size:17px;font-weight:800;margin-bottom:12px">मॉक टेस्ट चुनें (01 से 10)</h2>
+    <h2 style="font-size:17px;font-weight:800;margin-bottom:12px">मॉक टेस्ट श्रृंखला</h2>
     <div class="selection-grid" id="mockCardsGrid"></div>
   </div>
 
@@ -430,39 +419,32 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 
 <script>
 // ==========================================================
-// 🔗 1. UPESSC PGT 100% Tested Live Google Sheets CSV Registry
+// 🔗 1. UPESSC PGT Live Google Sheets CSV Registry
 // ==========================================================
 const CSV_URLS = {
-  // अनिवार्य सामान्य ज्ञान (GS) - Verified Tab gid=584625663
   PGT_GS:          "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=584625663&single=true&output=csv",
-  
-  // 9 मुख्य विषय (Subject Sheets)
   PGT_HINDI:       "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=0&single=true&output=csv",
   PGT_ENGLISH:     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1766773408&single=true&output=csv",
   PGT_ECONOMICS:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=313947763&single=true&output=csv",
   PGT_CIVICS:      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1778832576&single=true&output=csv",
   PGT_GEOGRAPHY:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1535064333&single=true&output=csv",
   PGT_HISTORY:     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=394291620&single=true&output=csv",
-  
   PGT_SANSKRIT:    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=0&single=true&output=csv",
   PGT_HOMESCIENCE: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=313947763&single=true&output=csv",
   PGT_SOCIOLOGY:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1778832576&single=true&output=csv",
-
-  // छात्र सत्यापन (Paid Users)
   PAID_USERS:      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1244640150&single=true&output=csv"
 };
 
-// 9 प्रमुख विषय (प्रत्येक में 90 प्रश्न, 90 मिनट, 1/3 नेगेटिव)
 const PGT_SUBJECTS = [
-  { id: "PGT_HINDI", name: "हिन्दी (Hindi)", desc: "साहित्य का इतिहास, काव्यशास्त्र, भाषाविज्ञान व व्याकरण", q: 90, time: 90, icon: "📖" },
-  { id: "PGT_ENGLISH", name: "English Literature & Lang", desc: "British, American, Indian Literature, Grammar & Forms", q: 90, time: 90, icon: "🔤" },
-  { id: "PGT_ECONOMICS", name: "अर्थशास्त्र (Economics)", desc: "व्यष्टि, समष्टि, लोक वित्त, मौद्रिक व भारतीय अर्थव्यवस्था", q: 90, time: 90, icon: "📈" },
-  { id: "PGT_CIVICS", name: "नागरिक शास्त्र (Civics)", desc: "राजनीतिक सिद्धांत, विचारक, संविधान व लोक प्रशासन", q: 90, time: 90, icon: "⚖️" },
-  { id: "PGT_GEOGRAPHY", name: "भूगोल (Geography)", desc: "भू-आकृति, जलवायु, समुद्र विज्ञान, मानव व भारत भूगोल", q: 90, time: 90, icon: "🌍" },
-  { id: "PGT_HISTORY", name: "इतिहास (History)", desc: "प्राचीन, मध्यकालीन, आधुनिक भारत व विश्व इतिहास", q: 90, time: 90, icon: "📜" },
-  { id: "PGT_SANSKRIT", name: "संस्कृत (Sanskrit)", desc: "वैदिक एवं लौकिक साहित्य, व्याकरण, दर्शन व अनुवाद", q: 90, time: 90, icon: "🕉️" },
-  { id: "PGT_HOMESCIENCE", name: "गृह विज्ञान (Home Science)", desc: "आहार एवं पोषण, बाल विकास, वस्त्र विज्ञान व गृह प्रबंध", q: 90, time: 90, icon: "🏡" },
-  { id: "PGT_SOCIOLOGY", name: "समाजशास्त्र (Sociology)", desc: "सामाजिक विचारक, संरचना, परिवर्तन, जाति व भारतीय समाज", q: 90, time: 90, icon: "👥" }
+  { id: "PGT_HINDI", name: "हिन्दी (Hindi)", desc: "साहित्य का इतिहास, काव्यशास्त्र, भाषाविज्ञान व व्याकरण", q: 90, time: 90, icon: "📖", totalMocks: 15 },
+  { id: "PGT_ENGLISH", name: "English Literature & Lang", desc: "British, American, Indian Literature, Grammar & Forms", q: 90, time: 90, icon: "🔤", totalMocks: 15 },
+  { id: "PGT_ECONOMICS", name: "अर्थशास्त्र (Economics)", desc: "व्यष्टि, समष्टि, लोक वित्त, बजट, मौद्रिक व भारतीय अर्थव्यवस्था", q: 90, time: 90, icon: "📈", totalMocks: 18 },
+  { id: "PGT_CIVICS", name: "नागरिक शास्त्र (Civics)", desc: "राजनीतिक सिद्धांत, विचारक, संविधान व लोक प्रशासन", q: 90, time: 90, icon: "⚖️", totalMocks: 15 },
+  { id: "PGT_GEOGRAPHY", name: "भूगोल (Geography)", desc: "भू-आकृति, जलवायु, समुद्र विज्ञान, मानव व भारत भूगोल", q: 90, time: 90, icon: "🌍", totalMocks: 15 },
+  { id: "PGT_HISTORY", name: "इतिहास (History)", desc: "प्राचीन, मध्यकालीन, आधुनिक भारत व विश्व इतिहास", q: 90, time: 90, icon: "📜", totalMocks: 15 },
+  { id: "PGT_SANSKRIT", name: "संस्कृत (Sanskrit)", desc: "वैदिक एवं लौकिक साहित्य, व्याकरण, दर्शन व अनुवाद", q: 90, time: 90, icon: "🕉️", totalMocks: 15 },
+  { id: "PGT_HOMESCIENCE", name: "गृह विज्ञान (Home Science)", desc: "आहार एवं पोषण, बाल विकास, वस्त्र विज्ञान व गृह प्रबंध", q: 90, time: 90, icon: "🏡", totalMocks: 15 },
+  { id: "PGT_SOCIOLOGY", name: "समाजशास्त्र (Sociology)", desc: "सामाजिक विचारक, संरचना, परिवर्तन, जाति व भारतीय समाज", q: 90, time: 90, icon: "👥", totalMocks: 15 }
 ];
 
 const ADMIN_WHATSAPP = "9140740167";
@@ -472,7 +454,6 @@ let currentExamConfig = null, questions = [], currentIndex = 0;
 let userAnswers = {}, markedForReview = {}, timeLeft = 0, timerInterval = null;
 let currentFilter = 'ALL', processedResults = null, activeSectionMode = "";
 
-// 🔁 Auto-Retry Fetch
 async function fetchWithRetry(url, retries = 3, delay = 1000) {
   for (let i = 0; i < retries; i++) {
     try {
@@ -488,7 +469,6 @@ async function fetchWithRetry(url, retries = 3, delay = 1000) {
   }
 }
 
-// 🛡️ Robust CSV Line Parser (Handles commas inside quotes and table formatting)
 function parseCSVLine(text) {
   let p = '', row = [''], i = 0, q = false;
   for (let c of text) {
@@ -509,7 +489,6 @@ function showToast(msg) {
   setTimeout(() => t.remove(), 3200);
 }
 
-// 🌙 Theme & Text Control
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   localStorage.setItem('cbt_dark_mode', document.body.classList.contains('dark-mode'));
@@ -522,7 +501,6 @@ function changeFontSize(dir) {
   localStorage.setItem('cbt_font_size', size);
 }
 
-// 📜 Syllabus Modal Controls
 function openSyllabusModal() {
   document.getElementById('sylOverlay').style.display = 'block';
   document.getElementById('sylModal').style.display = 'flex';
@@ -532,7 +510,6 @@ function closeSyllabusModal() {
   document.getElementById('sylModal').style.display = 'none';
 }
 
-// 🔐 Login Authentication
 async function verifyLoginSheet() {
   const mobile = document.getElementById('userMobile').value.trim();
   const pass = document.getElementById('userPass').value.trim();
@@ -622,7 +599,6 @@ function isDemoUser() {
   try { return JSON.parse(localStorage.getItem('cbt_pgt_session') || '{}').isDemo === true; } catch { return false; }
 }
 
-// 🧭 Navigation Hubs
 function goHome() {
   clearInterval(timerInterval);
   document.getElementById('quizScreen').style.display = 'none';
@@ -643,7 +619,7 @@ function openSectionMocks(sec) {
   document.getElementById('mockListScreen').style.display = 'block';
   document.getElementById('mockListBadge').textContent = "अनिवार्य सामान्य ज्ञान (GS)";
 
-  renderMockGrid("PGT_GS", "अनिवार्य सामान्य ज्ञान (GS)", 30, 30, 0.33);
+  renderMockGrid("PGT_GS", "अनिवार्य सामान्य ज्ञान (GS)", 30, 30, 0.33, 15);
 }
 
 function openSubjectSelection() {
@@ -660,7 +636,7 @@ function openSubjectSelection() {
       <div style="font-size:26px">${sub.icon}</div>
       <div class="card-title">${sub.name}</div>
       <div class="card-sub">${sub.desc}</div>
-      <div style="font-size:11.5px;font-weight:800;color:var(--primary);margin-top:4px">10 Full Mocks (90 प्रश्न • 90 मिनट • -1/3)</div>
+      <div style="font-size:11.5px;font-weight:800;color:var(--primary);margin-top:4px">${sub.totalMocks} Mocks (90 प्रश्न • 90 मिनट • -1/3)</div>
     `;
     card.onclick = () => openSubjectMockList(sub);
     grid.appendChild(card);
@@ -673,8 +649,7 @@ function openSubjectMockList(sub) {
   document.getElementById('mockListScreen').style.display = 'block';
   document.getElementById('mockListBadge').textContent = sub.name;
 
-  // New Pattern: 90 Questions, 90 Mins, 1/3 Negative
-  renderMockGrid(sub.id, sub.name, sub.q, sub.time, 0.33);
+  renderMockGrid(sub.id, sub.name, sub.q, sub.time, 0.33, sub.totalMocks || 15);
 }
 
 function backFromMockList() {
@@ -686,21 +661,49 @@ function backFromMockList() {
   }
 }
 
-function renderMockGrid(sheetKey, title, qCount, duration, negMark) {
+// 🎯 Render Mock List with Special High-Yield Badges
+function renderMockGrid(sheetKey, title, qCount, duration, negMark, totalCount = 15) {
   const grid = document.getElementById('mockCardsGrid');
   grid.innerHTML = '';
   const demo = isDemoUser();
 
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= totalCount; i++) {
     const locked = demo && i > 1;
     const card = document.createElement('div');
     card.className = 'select-card' + (locked ? ' locked' : '');
+
+    let specialBadge = "";
+    let desc = "नया पैटर्न • 1/3 नेगेटिव • विस्तृत हल";
+
+    if (sheetKey === "PGT_ECONOMICS") {
+      if (i === 11 || i === 15) {
+        specialBadge = "🔥 MUST-DO: बजट विशेषांक 2024-25";
+        desc = "केंद्रीय व UP बजट 2024-25 के अति-महत्वपूर्ण प्रश्न (बिना किए परीक्षा न दें)";
+      } else if (i === 12 || i === 16) {
+        specialBadge = "📊 MUST-DO: आर्थिक सर्वेक्षण 2024-25";
+        desc = "Economic Survey & Growth Trends (परीक्षा-उन्मुख)";
+      } else if (i === 13 || i === 17) {
+        specialBadge = "⚡ MUST-DO: राष्ट्रीय आर्थिक समसामयिकी";
+        desc = "RBI नीतियां, बैंकिंग सुधार, योजनाएं व समितियां";
+      } else if (i === 14 || i === 18) {
+        specialBadge = "📈 MUST-DO: सांख्यिकी व अर्थमिति";
+        desc = "इंडेक्स, प्रतिगमन, परिकल्पना परीक्षण व सैंपलिंग";
+      } else if (i > 10) {
+        specialBadge = "🎯 MUST-DO: अंतिम चयन मॉक";
+        desc = "संभावित परीक्षा-उन्मुख प्रश्न पत्र";
+      }
+    } else if (i > 10) {
+      specialBadge = "🔥 MUST-DO: अंतिम चयन मॉक";
+      desc = "उच्च-प्राथमिकता वाले संभावित प्रश्न (बिना किए परीक्षा न दें)";
+    }
+
     card.innerHTML = `
       <div style="display:flex;justify-content:space-between;align-items:center">
         <strong class="card-title">📝 Mock Test ${i < 10 ? '0'+i : i} ${locked ? '🔒' : ''}</strong>
         <span style="font-size:11.5px;font-weight:800;color:var(--primary)">${qCount}Q • ${duration}M</span>
       </div>
-      <div class="card-sub">${locked ? 'फ्री डेमो में लॉक है' : 'नया पैटर्न • 1/3 नेगेटिव • विस्तृत हल'}</div>
+      ${specialBadge ? `<div style="font-size:11px;font-weight:800;color:#c2410c;background:#ffedd5;padding:2px 6px;border-radius:6px;align-self:flex-start;margin-top:2px">${specialBadge}</div>` : ''}
+      <div class="card-sub">${locked ? 'फ्री डेमो में लॉक है' : desc}</div>
     `;
     card.onclick = () => {
       if (locked) { showToast("⚠️ डेमो मोड में केवल Mock 01 उपलब्ध है!"); return; }
@@ -710,7 +713,7 @@ function renderMockGrid(sheetKey, title, qCount, duration, negMark) {
   }
 }
 
-// 🎯 100% Bulletproof CBT Parser (Works flawlessly with Google Sheets Table1)
+// 🎯 Ultra-Reliable Universal Parser
 async function startCBT(cfg, isResume = false) {
   currentExamConfig = cfg;
   const url = CSV_URLS[cfg.sheetKey] || CSV_URLS.PGT_GS;
@@ -734,17 +737,15 @@ async function startCBT(cfg, isResume = false) {
 
     const header = parseCSVLine(lines[0]).map(h => h.trim().toLowerCase());
 
-    // 🔍 Auto-Detect Columns (Handles table headers)
-    let mockCol = header.findIndex(h => h.includes('mock') || h.includes('test'));
-    let qCol = header.findIndex(h => h.includes('question') || h.includes('प्रश्न') || h.includes('ques'));
-    let aCol = header.findIndex(h => h.includes('option a') || h.includes('opt a') || h === 'a' || h.includes('विकल्प a'));
-    let bCol = header.findIndex(h => h.includes('option b') || h.includes('opt b') || h === 'b' || h.includes('विकल्प b'));
-    let cCol = header.findIndex(h => h.includes('option c') || h.includes('opt c') || h === 'c' || h.includes('विकल्प c'));
-    let dCol = header.findIndex(h => h.includes('option d') || h.includes('opt d') || h === 'd' || h.includes('विकल्प d'));
-    let ansCol = header.findIndex(h => h.includes('ans') || h.includes('उत्तर') || h.includes('correct'));
-    let expCol = header.findIndex(h => h.includes('explana') || h.includes('व्याख्या') || h.includes('solution'));
+    let mockCol = header.findIndex(h => h.includes('mock'));
+    let qCol = header.findIndex(h => h.includes('question') || h.includes('प्रश्न'));
+    let aCol = header.findIndex(h => h.includes('option a') || h.includes('opt a') || h.includes('विकल्प a'));
+    let bCol = header.findIndex(h => h.includes('option b') || h.includes('opt b') || h.includes('विकल्प b'));
+    let cCol = header.findIndex(h => h.includes('option c') || h.includes('opt c') || h.includes('विकल्प c'));
+    let dCol = header.findIndex(h => h.includes('option d') || h.includes('opt d') || h.includes('विकल्प d'));
+    let ansCol = header.findIndex(h => h.includes('ans') || h.includes('उत्तर'));
+    let expCol = header.findIndex(h => h.includes('explana') || h.includes('व्याख्या'));
 
-    // Fallback based on your exact screenshot: [0:Mock, 1:QNo, 2:Question, 3:Option A, 4:Option B, 5:Option C, 6:Option D, 7:Ans, 8:Explanation]
     if (mockCol === -1) mockCol = 0;
     if (qCol === -1) qCol = 2;
     if (aCol === -1) aCol = 3;
@@ -761,63 +762,54 @@ async function startCBT(cfg, isResume = false) {
       const c = parseCSVLine(lines[i]);
       if (!c || c.length < 4) continue;
 
-      // Check Mock Number
       const rowMock = parseInt(String(c[mockCol] || '').replace(/\D/g, ''), 10);
-      if (!isNaN(rowMock) && rowMock !== targetMock) {
-        continue;
-      }
+      
+      if (!isNaN(rowMock) && rowMock !== targetMock) continue;
 
       const qText = (c[qCol] || '').trim();
-      const optA = (c[aCol] || '').trim();
-      const optB = (c[bCol] || '').trim();
-      const optC = (c[cCol] || '').trim();
-      const optD = (c[dCol] || '').trim();
+      if (!qText) continue;
 
-      let correctAns = (c[ansCol] || '').trim().toUpperCase();
+      let correctAns = (c[ansCol] || 'A').trim().toUpperCase();
       const match = correctAns.match(/[A-D]/);
-      correctAns = match ? match[0] : (correctAns || 'A');
+      correctAns = match ? match[0] : 'A';
 
-      const expText = (c[expCol] || '').trim();
-
-      if (qText) {
-        questions.push({
-          q: qText,
-          a: optA,
-          b: optB,
-          c: optC,
-          d: optD,
-          correct: correctAns,
-          exp: expText,
-          topic: inferTopic(qText)
-        });
-      }
+      questions.push({
+        q: qText,
+        a: (c[aCol] || '').trim(),
+        b: (c[bCol] || '').trim(),
+        c: (c[cCol] || '').trim(),
+        d: (c[dCol] || '').trim(),
+        correct: correctAns,
+        exp: (c[expCol] || '').trim(),
+        topic: inferTopic(qText)
+      });
 
       if (questions.length >= cfg.qCount) break;
     }
 
-    // Safety fallback: If targetMock has no questions yet, load first batch
-    if (questions.length === 0 && targetMock === 1) {
-      for (let i = 1; i < lines.length; i++) {
+    // Fallback: Agar sheet me Mock no. na ho to sequential block le lein
+    if (questions.length === 0) {
+      const startIdx = (targetMock - 1) * cfg.qCount + 1;
+      for (let i = startIdx; i < lines.length && questions.length < cfg.qCount; i++) {
         const c = parseCSVLine(lines[i]);
         const qText = (c[qCol] || c[2] || '').trim();
-        if (qText) {
-          questions.push({
-            q: qText,
-            a: (c[aCol] || c[3] || '').trim(),
-            b: (c[bCol] || c[4] || '').trim(),
-            c: (c[cCol] || c[5] || '').trim(),
-            d: (c[dCol] || c[6] || '').trim(),
-            correct: ((c[ansCol] || c[7] || 'A').match(/[A-D]/) || ['A'])[0],
-            exp: (c[expCol] || c[8] || '').trim(),
-            topic: inferTopic(qText)
-          });
-        }
-        if (questions.length >= cfg.qCount) break;
+        if (!qText) continue;
+
+        questions.push({
+          q: qText,
+          a: (c[aCol] || c[3] || '').trim(),
+          b: (c[bCol] || c[4] || '').trim(),
+          c: (c[cCol] || c[5] || '').trim(),
+          d: (c[dCol] || c[6] || '').trim(),
+          correct: ((c[ansCol] || c[7] || 'A').match(/[A-D]/) || ['A'])[0],
+          exp: (c[expCol] || c[8] || '').trim(),
+          topic: inferTopic(qText)
+        });
       }
     }
 
     if (!questions.length) {
-      showToast(`⚠️ Mock ${targetMock} में प्रश्न उपलब्ध नहीं हैं!`);
+      showToast(`⚠️ Mock ${targetMock} में प्रश्न उपलब्ध नहीं हैं! कृपया डेटा चेक करें।`);
       goHome();
       return;
     }
@@ -842,22 +834,21 @@ async function startCBT(cfg, isResume = false) {
     saveCurrentTestState();
   } catch (err) {
     console.error("Sheet Loading Error:", err);
-    showToast("शीट लोड करने में त्रुटि हुई। इंटरनेट कनेक्शन या CSV लिंक जाँचें।");
+    showToast("शीट लोड करने में त्रुटि हुई। CSV लिंक जांचें।");
     goHome();
   }
 }
 
 function inferTopic(qText = "") {
   const t = qText.toLowerCase();
-  if (t.includes("संविधान") || t.includes("अनुच्छेद") || t.includes("संसद") || t.includes("राष्ट्रपति")) return "संविधान व राजव्यवस्था";
-  if (t.includes("नदी") || t.includes("पर्वत") || t.includes("पठार") || t.includes("जलवायु")) return "भूगोल";
-  if (t.includes("मुगल") || t.includes("गांधी") || t.includes("आंदोलन") || t.includes("हड़प्पा")) return "इतिहास";
-  if (t.includes("बजट") || t.includes("जीडीपी") || t.includes("मुद्रास्फीति") || t.includes("बैंक")) return "अर्थव्यवस्था";
-  if (t.includes("संधि") || t.includes("समास") || t.includes("साहित्य") || t.includes("काव्य")) return "हिन्दी";
-  if (t.includes("shakespeare") || t.includes("milton") || t.includes("grammar") || t.includes("clause")) return "English";
-  if (t.includes("वेद") || t.includes("उपनिषद") || t.includes("प्रत्यय") || t.includes("कारक")) return "संस्कृत";
-  if (t.includes("पोषण") || t.includes("कैलोरी") || t.includes("रेशे") || t.includes("विटामिन")) return "गृह विज्ञान";
-  if (t.includes("दुरखीम") || t.includes("मार्क्स") || t.includes("परिवार") || t.includes("विवाह")) return "समाजशास्त्र";
+  if (t.includes("बजट") || t.includes("घाटा") || t.includes("कर") || t.includes("fiscal")) return "लोक वित्त व बजट";
+  if (t.includes("मुद्रास्फीति") || t.includes("बैंक") || t.includes("rbi") || t.includes("रेपो")) return "मौद्रिक अर्थशास्त्र";
+  if (t.includes("मांग") || t.includes("उदासीनता") || t.includes("एकाधिकार") || t.includes("लागत")) return "व्यष्टि अर्थशास्त्र";
+  if (t.includes("व्यापार") || t.includes("टैरिफ") || t.includes("wto") || t.includes("विनिमय")) return "अंतरराष्ट्रीय व्यापार";
+  if (t.includes("संविधान") || t.includes("अनुच्छेद") || t.includes("संसद") || t.includes("पंचायत")) return "संविधान व राजव्यवस्था";
+  if (t.includes("नदी") || t.includes("पर्वत") || t.includes("जलवायु") || t.includes("जनगणना")) return "भूगोल";
+  if (t.includes("इतिहास") || t.includes("गांधी") || t.includes("मुगल") || t.includes("क्रांति")) return "इतिहास";
+  if (t.includes("माध्य") || t.includes("सहसंबंध") || t.includes("प्रतीपगमन") || t.includes("काई-वर्ग")) return "सांख्यिकी व अर्थमिति";
   return "सामान्य अध्ययन";
 }
 
@@ -963,7 +954,6 @@ function renderPalette() {
   });
 }
 
-// ⌨️ Keyboard Shortcuts
 window.addEventListener('keydown', e => {
   if (document.getElementById('quizScreen').style.display !== 'block') return;
   if (['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
@@ -1093,7 +1083,6 @@ function shareScoreWhatsApp() {
   window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
 }
 
-// 🖨️ Super Compact Incorrect Questions PDF Print
 function setupPrintReport() {
   if (!processedResults || !currentExamConfig) return;
   document.getElementById('printMetaText').textContent = `${currentExamConfig.title} | Team Anurag PGT Revision`;

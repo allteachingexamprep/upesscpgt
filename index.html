@@ -37,10 +37,15 @@ body.dark-mode {
 html { font-size: var(--base-font-size); scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min-height: 100vh; transition: 0.2s background, 0.2s color; }
 
+/* 🌟 Thin Top Live Progress Bar */
+#examProgressBar { position: fixed; top: 0; left: 0; height: 3.5px; background: var(--primary-gradient); width: 0%; z-index: 10000; transition: width 0.2s ease; }
+
+/* ⚡ Toast Notification */
 #toastContainer { position: fixed; top: 16px; right: 16px; z-index: 100000; display: flex; flex-direction: column; gap: 8px; pointer-events: none; max-width: 90vw; }
 .toast-msg { background: #0f172a; color: #fff; padding: 12px 18px; border-radius: 14px; font-size: 13px; font-weight: 700; border-left: 5px solid var(--primary); box-shadow: 0 12px 28px rgba(0,0,0,0.3); pointer-events: auto; animation: toastIn 0.25s ease; }
 @keyframes toastIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
+/* 🔐 Login Modal */
 #loginOverlay { position: fixed; inset: 0; background: rgba(15,23,42,0.92); backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
 .login-card { background: var(--card); border-radius: 24px; width: 100%; max-width: 410px; padding: 28px 22px; text-align: center; border: 1.5px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
 .login-field { width: 100%; padding: 13px 15px; margin-bottom: 12px; border: 1.5px solid var(--border); border-radius: 14px; background: var(--bg); color: var(--text-main); font-size: 14.5px; outline: none; transition: 0.2s; }
@@ -49,12 +54,18 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .btn-demo-mode { background: #fef3c7; color: #92400e; border: 1.5px dashed var(--warning); padding: 11px; border-radius: 14px; width: 100%; font-size: 13.5px; font-weight: 800; cursor: pointer; margin-top: 10px; }
 .btn-wa-admission { display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; background: var(--whatsapp); color: #fff; padding: 11px 16px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 13px; width: 100%; box-shadow: 0 4px 14px rgba(37,211,102,0.25); }
 
+/* 🔴 Ticker Tape */
 .ticker-container { background: #0f172a; color: #f8fafc; display: flex; align-items: center; overflow: hidden; border-bottom: 2px solid var(--primary); height: 38px; font-size: 12.5px; font-weight: 700; }
 .ticker-badge-live { background: var(--danger); color: #fff; padding: 0 12px; height: 100%; display: flex; align-items: center; font-weight: 800; flex-shrink: 0; }
 .ticker-scroll-area { flex: 1; overflow: hidden; white-space: nowrap; }
 .ticker-scroll-text { display: inline-block; padding-left: 100%; animation: tickerScroll 36s linear infinite; }
 @keyframes tickerScroll { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
 
+@media (prefers-reduced-motion: reduce) {
+  .ticker-scroll-text { animation: none; padding-left: 10px; }
+}
+
+/* Header */
 .header { background: var(--card); border-bottom: 1.5px solid var(--border); padding: 10px 14px; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
 .brand-box { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .header-actions { display: flex; align-items: center; gap: 5px; }
@@ -65,9 +76,10 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .streak-pill { background: #ffedd5; color: #c2410c; border: 1px solid #fdba74; padding: 4px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 800; }
 .demo-user-badge { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; display: none; }
 
-.container { max-width: 780px; margin: 16px auto; padding: 0 14px; }
+.container { max-width: 820px; margin: 16px auto; padding: 0 14px; }
 .selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
+/* 🌟 Hero Cards */
 .hero-card {
   border-radius: 20px;
   padding: 20px;
@@ -84,10 +96,13 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .hero-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
 .hero-card.gs-theme { background: var(--gs-gradient); box-shadow: 0 8px 22px rgba(30,58,138,0.25); }
 .hero-card.sub-theme { background: var(--sub-gradient); box-shadow: 0 8px 22px rgba(6,95,70,0.25); }
+.hero-card .hero-icon { font-size: 32px; margin-bottom: 6px; }
+.hero-card .hero-title { font-size: 17px; font-weight: 900; }
+.hero-card .hero-desc { font-size: 12px; opacity: 0.92; margin-top: 4px; line-height: 1.4; }
 
 .select-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 6px; cursor: pointer; transition: 0.15s; }
-.select-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(79,70,229,0.08); }
-.select-card.locked { opacity: 0.55; filter: grayscale(0.6); cursor: not-allowed; }
+.select-card:hover:not(.locked) { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(79,70,229,0.08); }
+.select-card.locked { opacity: 0.5; filter: grayscale(0.7); cursor: not-allowed; }
 .card-title { font-size: 15px; font-weight: 800; color: var(--text-main); }
 .card-sub { font-size: 11.5px; color: var(--text-sub); font-weight: 600; line-height: 1.4; }
 .breadcrumb-bar { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 14px; cursor: pointer; }
@@ -99,6 +114,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .resume-card { display: none; background: #f0fdf4; border: 2px solid #16a34a; border-radius: 16px; padding: 14px; margin-bottom: 16px; cursor: pointer; align-items: center; gap: 12px; }
 .resume-card.show { display: flex; }
 
+/* CBT Quiz Screen */
 .quiz-card { display: none; background: var(--card); border: 1.5px solid var(--border); border-radius: 22px; padding: 22px 18px; }
 .question-box { font-size: 1.08rem; font-weight: 700; line-height: 1.6; margin-bottom: 20px; }
 .options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
@@ -115,6 +131,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .btn-review { background: var(--review-bg); color: var(--review); border: 1.5px solid #c4b5fd; }
 .btn-review.active { background: var(--review); color: #fff; }
 
+/* Palette */
 .palette-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 200; display: none; }
 .palette-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 92%; max-width: 440px; max-height: 85vh; background: var(--card); z-index: 201; border-radius: 20px; display: none; flex-direction: column; padding: 18px; }
 .palette-grid-compact { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; overflow-y: auto; max-height: 55vh; padding: 4px 0; }
@@ -123,6 +140,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .p-box.review { background: var(--review) !important; }
 .p-box.current { outline: 2.5px solid #0f172a; }
 
+/* Result Panel */
 .result-panel { display: none; background: var(--card); border: 1.5px solid var(--border); border-radius: 22px; padding: 24px 18px; text-align: center; }
 .score-huge { font-size: 36px; font-weight: 900; color: var(--primary); font-family: 'JetBrains Mono', monospace; margin: 6px 0; }
 .genz-feedback-box { border-radius: 14px; padding: 12px; margin: 12px 0; font-size: 14px; font-weight: 800; border: 1.5px dashed; }
@@ -138,6 +156,21 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .bullet-q-card.skipped-card { border-left-color: var(--warning); }
 .bullet-q-card.review-card { border-left-color: var(--review); }
 
+/* 📜 Syllabus Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.7); z-index: 300; display: none; }
+.modal-window { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 92%; max-width: 650px; max-height: 88vh; background: var(--card); z-index: 301; border-radius: 22px; display: none; flex-direction: column; padding: 22px; overflow-y: auto; }
+.syl-unit-card { background: var(--bg); border: 1.5px solid var(--border); border-left: 4px solid var(--warning); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; font-size: 13px; line-height: 1.5; }
+.syl-unit-title { font-weight: 800; color: var(--text-main); margin-bottom: 3px; }
+
+#printReportArea { display: none; }
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .header, .ticker-container, #loginOverlay, .quiz-card, .result-panel, .palette-overlay, .palette-modal, #toastContainer, .tool-btn, .breadcrumb-bar, .resume-card, #homeNoticeBoard, #pgtSectionsScreen, #subjectSelectScreen, #mockListScreen, .modal-overlay, .modal-window, #examProgressBar { display: none !important; }
+  #printReportArea { display: block !important; }
+  .print-grid-2col { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .bullet-q-card { padding: 6px 8px !important; margin-bottom: 6px !important; font-size: 11px !important; border: 1px solid #cbd5e1 !important; page-break-inside: avoid; }
+}
+
 @media (max-width: 540px) {
   .selection-grid { grid-template-columns: 1fr; }
   .palette-grid-compact { grid-template-columns: repeat(8, 1fr); }
@@ -146,16 +179,17 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 </head>
 <body>
 
+<div id="examProgressBar"></div>
 <div id="toastContainer"></div>
 
 <!-- 🔐 Login Gateway -->
-<div id="loginOverlay">
+<div id="loginOverlay" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
   <div class="login-card">
-    <div style="font-size:42px;margin-bottom:6px">🏛️</div>
-    <h2 style="font-size:18px;font-weight:900;margin-bottom:2px">UPESSC PGT प्रवक्ता पोर्टल</h2>
+    <div style="font-size:42px;margin-bottom:6px" aria-hidden="true">🏛️</div>
+    <h2 id="loginTitle" style="font-size:18px;font-weight:900;margin-bottom:2px">UPESSC PGT प्रवक्ता पोर्टल</h2>
     <p style="font-size:12px;color:var(--text-sub);margin-bottom:14px">Sheet Verified Access • Team Anurag</p>
-    <input type="tel" id="userMobile" class="login-field" placeholder="रजिस्टर्ड मोबाइल नंबर (10 अंक)" maxlength="10">
-    <input type="password" id="userPass" class="login-field" placeholder="पासवर्ड दर्ज करें">
+    <input type="tel" id="userMobile" class="login-field" placeholder="रजिस्टर्ड मोबाइल नंबर (10 अंक)" maxlength="10" aria-label="रजिस्टर्ड मोबाइल नंबर">
+    <input type="password" id="userPass" class="login-field" placeholder="पासवर्ड दर्ज करें" aria-label="पासवर्ड" onkeydown="if(event.key==='Enter') verifyLoginSheet()">
     <div id="loginErrMsg" style="color:var(--danger);font-size:12px;font-weight:700;margin-bottom:10px;display:none"></div>
     <button class="btn-login-submit" id="btnLoginBtn" onclick="verifyLoginSheet()">पोर्टल में प्रवेश करें ➔</button>
     <button class="btn-demo-mode" onclick="enterDemoMode()">🎁 फ्री डेमो एक्सेस (Mock 01 Unlock)</button>
@@ -166,50 +200,51 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 </div>
 
 <!-- 🔴 Live Ticker -->
-<div class="ticker-container">
+<div class="ticker-container" aria-label="लाइव सूचनाएं">
   <div class="ticker-badge-live">⚡ LIVE</div>
   <div class="ticker-scroll-area">
     <div class="ticker-scroll-text">
-      🏛️ <strong>UPESSC PGT 2026:</strong> अनिवार्य सामान्य ज्ञान (GS 30Q) + मुख्य विषय (90Q) + विशेष परीक्षा-उन्मुख मॉक्स (बजट 2024-25, आर्थिक सर्वेक्षण, राष्ट्रीय समसामयिकी व सांख्यिकी) लाइव!
+      🏛️ <strong>UPESSC PGT 2026:</strong> अनिवार्य सामान्य ज्ञान (GS 30Q) + मुख्य विषय (90Q) + 5 'Must-Do' फाइनल सिलेक्शन मॉक्स (बजट 2024-25, आर्थिक सर्वेक्षण, राष्ट्रीय समसामयिकी व सांख्यिकी) लाइव!
     </div>
   </div>
 </div>
 
 <!-- Header -->
-<div class="header">
+<header class="header">
   <div class="brand-box">
-    <button class="tool-btn" onclick="goHome()">🏠 Home</button>
+    <button class="tool-btn" onclick="goHome()" aria-label="मुख्य पृष्ठ पर जाएं">🏠 Home</button>
+    <button class="tool-btn" style="background:#fef3c7;color:#92400e;border-color:#fde68a;font-weight:800" onclick="openSyllabusModal()" aria-label="पाठ्यक्रम देखें">📜 सिलेबस</button>
     <span class="streak-pill" id="userStreakBadge">🔥 1 दिन</span>
     <span class="demo-user-badge" id="demoUserTag">🎁 DEMO</span>
   </div>
   <div class="header-actions">
-    <button class="tool-btn" onclick="changeFontSize(-1)">A-</button>
-    <button class="tool-btn" onclick="changeFontSize(1)">A+</button>
-    <button class="tool-btn" id="darkModeBtn" onclick="toggleDarkMode()">🌙</button>
-    <button class="tool-btn" id="btnPaletteOpen" style="display:none" onclick="togglePalette(true)">🔢 पैलेट</button>
-    <div class="timer-badge" id="timerBadge">⏱️ <span id="timerText">30:00</span></div>
-    <button class="tool-btn" style="color:var(--danger)" onclick="userLogout()">🚪</button>
+    <button class="tool-btn" onclick="changeFontSize(-1)" aria-label="फॉन्ट छोटा करें">A-</button>
+    <button class="tool-btn" onclick="changeFontSize(1)" aria-label="फॉन्ट बड़ा करें">A+</button>
+    <button class="tool-btn" id="darkModeBtn" onclick="toggleDarkMode()" aria-label="डार्क मोड बदलें">🌙</button>
+    <button class="tool-btn" id="btnPaletteOpen" style="display:none" onclick="togglePalette(true)" aria-label="प्रश्न पैलेट खोलें">🔢 पैलेट</button>
+    <div class="timer-badge" id="timerBadge" aria-live="polite">⏱️ <span id="timerText">30:00</span></div>
+    <button class="tool-btn" style="color:var(--danger)" onclick="userLogout()" aria-label="लॉगआउट करें">🚪</button>
   </div>
-</div>
+</header>
 
-<div class="container">
+<main class="container">
 
   <!-- Notice Board -->
-  <div id="homeNoticeBoard" class="notice-board">
+  <section id="homeNoticeBoard" class="notice-board">
     <div style="display:flex;justify-content:space-between;align-items:center">
-      <strong style="color:var(--primary)">📢 PGT प्रवक्ता चयन परीक्षा मास्टर सीरीज़</strong>
+      <strong style="color:var(--primary)">📢 PGT प्रवक्ता चयन परीक्षा मास्टर सीरीज़ (120 प्रश्न)</strong>
       <small id="todayDateText" style="color:var(--text-sub);font-weight:700"></small>
     </div>
     <ul class="notice-list">
       <li>📘 <strong>भाग-1 (GS):</strong> अनिवार्य सामान्य अध्ययन - 30 प्रश्न, 30 मिनट (1/3 नेगेटिव मार्किंग)।</li>
       <li>📙 <strong>भाग-2 (Subject):</strong> मुख्य विषय - 90 प्रश्न, 90 मिनट (1/3 नेगेटिव मार्किंग)।</li>
-      <li>🔥 <strong>स्पेशल मॉक्स (11 से 18):</strong> बजट 2024-25, आर्थिक सर्वेक्षण, समसामयिकी व सांख्यिकी पर आधारित अभ्यास सेट।</li>
+      <li>🔥 <strong>Must-Do स्पेशल मॉक्स (11 से 18):</strong> केंद्रीय व UP बजट 2024-25, आर्थिक सर्वेक्षण, राष्ट्रीय समसामयिकी और सांख्यिकी के अति-महत्वपूर्ण प्रश्न!</li>
     </ul>
-  </div>
+  </section>
 
   <!-- Resume Test Card -->
-  <div class="resume-card" id="resumeTestCard" onclick="resumeLastTest()">
-    <div style="font-size:32px">⏯️</div>
+  <div class="resume-card" id="resumeTestCard" onclick="resumeLastTest()" role="button" tabindex="0">
+    <div style="font-size:32px" aria-hidden="true">⏯️</div>
     <div style="flex:1">
       <h3 style="font-size:15px;font-weight:800;color:var(--success)">अधूरा टेस्ट जारी रखें (Resume Test)</h3>
       <p style="font-size:12px;color:var(--text-sub)" id="resumeTestInfo">आपका पिछला सत्र सुरक्षित है</p>
@@ -222,9 +257,9 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
     <p style="font-size:12.5px;color:var(--text-sub);margin-bottom:14px">अपनी तैयारी का सेक्शन चुनें:</p>
     
     <div class="selection-grid">
-      <div class="hero-card gs-theme" onclick="openSectionMocks('GS')">
+      <div class="hero-card gs-theme" onclick="openSectionMocks('GS')" role="button" tabindex="0">
         <div>
-          <div class="hero-icon">📘</div>
+          <div class="hero-icon" aria-hidden="true">📘</div>
           <div class="hero-title">अनिवार्य सामान्य ज्ञान (GS)</div>
           <div class="hero-desc">सभी विषयों हेतु अनिवार्य • समसामयिकी, इतिहास, भूगोल, संविधान, विज्ञान व ICT</div>
         </div>
@@ -233,11 +268,11 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
         </div>
       </div>
 
-      <div class="hero-card sub-theme" onclick="openSubjectSelection()">
+      <div class="hero-card sub-theme" onclick="openSubjectSelection()" role="button" tabindex="0">
         <div>
-          <div class="hero-icon">📚</div>
+          <div class="hero-icon" aria-hidden="true">📚</div>
           <div class="hero-title">मुख्य विषय (Subject Papers)</div>
-          <div class="hero-desc">अर्थशास्त्र, हिन्दी, English, नागरिक शास्त्र, भूगोल, इतिहास, संस्कृत, आदि</div>
+          <div class="hero-desc">अर्थशास्त्र, हिन्दी, English, नागरिक शास्त्र, भूगोल, इतिहास, संस्कृत आदि</div>
         </div>
         <div style="font-size:11.5px;font-weight:800;background:rgba(255,255,255,0.22);padding:5px 12px;border-radius:10px;align-self:flex-start;margin-top:10px">
           9 मुख्य विषय • 90 प्रश्न Mocks
@@ -261,24 +296,27 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
   </div>
 
   <!-- CBT Quiz Screen -->
-  <div class="quiz-card" id="quizScreen">
+  <div class="quiz-card" id="quizScreen" role="region" aria-label="परीक्षा प्रश्न पत्र">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
       <span id="examDetailTag" style="background:#e0e7ff;color:var(--primary);padding:3px 9px;border-radius:6px;font-size:12px;font-weight:800">PGT</span>
       <span id="qCountText" style="font-size:12px;font-weight:700;color:var(--text-sub)">Q 1/0</span>
     </div>
     <div class="question-box" id="questionText">प्रश्न लोड हो रहा है...</div>
-    <div class="options-list" id="optionsContainer"></div>
+    <div class="options-list" id="optionsContainer" role="radiogroup" aria-label="उत्तर विकल्प"></div>
     <div class="nav-controls">
       <button class="btn btn-prev" id="btnPrev" onclick="navQuestion(-1)">← पिछला</button>
       <button class="btn btn-review" id="btnReviewMark" onclick="toggleReviewCurrent()">🟡 रिव्यू</button>
       <button class="btn btn-next" id="btnNext" onclick="navQuestion(1)">अगला →</button>
       <button class="btn btn-submit" id="btnSubmit" style="display:none" onclick="confirmFinishExam()">सबमिट करें ✓</button>
     </div>
+    <div style="font-size:11px;color:var(--text-sub);text-align:center;margin-top:8px">
+      ⌨️ कीबोर्ड शॉर्टकट्स: 1/2/3/4 या A/B/C/D | M (रिव्यू) | ← → (आगे-पीछे)
+    </div>
   </div>
 
   <!-- Result Screen -->
   <div class="result-panel" id="resultScreen">
-    <div style="font-size:38px">🎯</div>
+    <div style="font-size:38px" aria-hidden="true">🎯</div>
     <h2 style="font-size:18px;font-weight:900;margin-top:4px">मॉक टेस्ट परिणाम</h2>
     <div class="score-huge" id="finalScore">0 / 0</div>
     <div class="genz-feedback-box" id="genzBox"></div>
@@ -287,7 +325,7 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
       📲 WhatsApp पर स्कोर शेयर करें
     </button>
     <button class="btn" style="background:var(--danger);color:#fff;width:100%;margin-bottom:14px;font-weight:800;padding:12px" onclick="window.print()">
-      🖨️ केवल गलत प्रश्नों की PDF सेव करें
+      🖨️ गलत व छूटे प्रश्नों की PDF सेव करें
     </button>
 
     <h4 style="text-align:left;font-size:14px;font-weight:800;margin-top:10px">📊 विषयवार प्रदर्शन विश्लेषण:</h4>
@@ -306,6 +344,112 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
     <button class="btn btn-prev" style="width:100%;margin-top:14px;padding:12px" onclick="goHome()">🏠 मुख्य मेनू</button>
   </div>
 
+</main>
+
+<!-- 📜 Comprehensive Official Syllabus Modal -->
+<div class="modal-overlay" id="sylOverlay" onclick="closeSyllabusModal()"></div>
+<div class="modal-window" id="sylModal" role="dialog" aria-modal="true" aria-labelledby="sylModalTitle">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+    <h3 id="sylModalTitle" style="font-size:17px;font-weight:900;color:var(--text-main)">📜 UPESSC PGT आधिकारिक पाठ्यक्रम</h3>
+    <button onclick="closeSyllabusModal()" style="border:none;background:none;font-size:18px;font-weight:900;cursor:pointer" aria-label="बंद करें">✕</button>
+  </div>
+
+  <div style="font-size:13px;color:var(--text-sub);margin-bottom:14px">
+    नए आयोग द्वारा निर्धारित 120 प्रश्नों के संयुक्त प्रश्न-पत्र का आधिकारिक ढांचा:
+  </div>
+
+  <h4 style="font-size:14px;font-weight:800;color:var(--primary);margin-bottom:8px">📘 भाग-1: अनिवार्य सामान्य ज्ञान (30 प्रश्न)</h4>
+  
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 1: राष्ट्रीय एवं अंतर्राष्ट्रीय समसामयिक घटनाएं</div>
+    प्रमुख राष्ट्रीय/अंतर्राष्ट्रीय घटनाएं, चर्चित व्यक्तित्व, पुरस्कार व सम्मान, खेलकूद, तथा भारत की नवीनतम योजनाएं।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 2: शिक्षण एवं शोध अभिवृत्ति (Teaching & Research Aptitude)</div>
+    शिक्षण की प्रकृति, उद्देश्य, स्तर (स्मृति, अवबोध, विमर्शक), शोध के प्रकार, परिकल्पना, डेटा संकलन, शोध नैतिकता व मूल्यांकन प्रणालियाँ।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 3: सूचना एवं संचार प्रौद्योगिकी (ICT)</div>
+    कंप्यूटर मूल बातें, इंटरनेट शब्दावली, ई-मेल, डिजिटल पहल (दीक्षा, स्वयं, एनडीएल), कृत्रिम बुद्धिमत्ता (AI) व साइबर सुरक्षा।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 4: मानव एवं पर्यावरण (People & Environment)</div>
+    पारिस्थितिकी तंत्र, जैव विविधता संरक्षण, जलवायु परिवर्तन, प्रदूषण नियंत्रण, राष्ट्रीय उद्यान, रामसर स्थल व अंतर्राष्ट्रीय समझौते।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 5: भारतीय इतिहास एवं भूगोल</div>
+    भारतीय राष्ट्रीय आंदोलन, 1857 की क्रांति, प्रमुख दर्रे, नदियाँ, पर्वत, मानसूनी प्रणाली, खनिज संसाधन व जनगणना आंकड़े।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">इकाई 6: भारतीय संविधान एवं अर्थव्यवस्था</div>
+    प्रस्तावना, मौलिक अधिकार, नीति निदेशक तत्व, संसद व न्यायपालिका, राजकोषीय नीति, बजट, बैंकिंग व आर्थिक संवृद्धि।
+  </div>
+
+  <h4 style="font-size:14px;font-weight:800;color:var(--sub-gradient);margin:14px 0 8px 0">📙 भाग-2: मुख्य विषय (90 प्रश्न)</h4>
+  
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">📈 अर्थशास्त्र (Economics):</div>
+    व्यष्टि अर्थशास्त्र (उपभोक्ता व्यवहार, उत्पादन व लागत फलन, बाजार संरचनाएं, कल्याणकारी अर्थशास्त्र), समष्टि अर्थशास्त्र (कीन्सियन मॉडल, उपभोग व निवेश फलन, मुद्रास्फीति व फिलिप्स वक्र), लोक वित्त (बजट 2024-25, कर संरचना, सार्वजनिक ऋण), अंतरराष्ट्रीय व्यापार (हेक्शर-ओहलिन, भुगतान संतुलन, टैरिफ, WTO), आर्थिक विकास एवं सांख्यिकी (सूचकांक, काई-वर्ग, प्रतिगमन)।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">📖 हिन्दी (Hindi):</div>
+    हिन्दी साहित्य का इतिहास (आदिकाल, भक्तिकाल, रीतिकाल, आधुनिक काल), प्रमुख विधाएं (नाटक, उपन्यास, निबंध), काव्यशास्त्र (रस, छंद, अलंकार), भाषाविज्ञान एवं हिन्दी व्याकरण।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">🔤 English Literature & Language:</div>
+    Major Authors & Works (Shakespeare, Milton, Wordsworth, Keats, Shelley, Dickens, Tennyson, Arnold, Hardy, T.S. Eliot), Indian English Writers, Literary Terms & Forms, Advanced Grammar, Clauses & Transformations.
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">⚖️ नागरिक शास्त्र (Civics):</div>
+    राजनीतिक सिद्धांत (राज्य, संप्रभुता, स्वतंत्रता, समानता, न्याय, अधिकार), राजनीतिक विचारक (प्लेटो, अरस्तू, लॉक, रूसो, मिल, मार्क्स, कौटिल्य, गांधी), भारतीय संविधान एवं लोक प्रशासन।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">🌍 भूगोल (Geography):</div>
+    भू-आकृति विज्ञान, जलवायु विज्ञान, समुद्र विज्ञान, जैव भूगोल, मानव एवं आर्थिक भूगोल, प्रादेशिक नियोजन तथा भारत का विस्तृत भूगोल।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">📜 इतिहास (History):</div>
+    प्राचीन भारत (सिंधु सभ्यता, वैदिक काल, मौर्य व गुप्त वंश), मध्यकालीन भारत (सल्तनत काल, मुगल साम्राज्य, मराठा), आधुनिक भारत (ब्रिटिश नीतियां, 1857 विप्लव, राष्ट्रीय आंदोलन) एवं विश्व इतिहास।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">🕉️ संस्कृत (Sanskrit):</div>
+    वैदिक एवं लौकिक संस्कृत साहित्य, प्रमुख नाटक एवं महाकाव्य, व्याकरण (संधि, समास, कारक, प्रत्यय), दर्शन एवं संस्कृत अनुवाद।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">🏡 गृह विज्ञान (Home Science):</div>
+    आहार एवं पोषण विज्ञान, मानव विकास एवं पारिवारिक संबंध, वस्त्र विज्ञान एवं परिधान, गृह प्रबंधन एवं पारिवारिक संसाधन, प्रसार शिक्षा।
+  </div>
+
+  <div class="syl-unit-card">
+    <div class="syl-unit-title">👥 समाजशास्त्र (Sociology):</div>
+    समाजशास्त्रीय सिद्धांत एवं प्रमुख विचारक (दुरखीम, वेबर, मार्क्स), सामाजिक संरचना व संस्थाएं, सामाजिक परिवर्तन व नियंत्रण, भारतीय समाज की समस्याएं, जाति एवं वर्ग व्यवस्था।
+  </div>
+</div>
+
+<!-- Print Report Area -->
+<div id="printReportArea">
+  <div style="border-bottom:2px solid #4f46e5;padding-bottom:6px;margin-bottom:10px;display:flex;justify-content:space-between">
+    <div>
+      <h2 style="font-size:15px;color:#4f46e5">UPESSC PGT Test Series - Incorrect & Skipped Questions Sheet</h2>
+      <small id="printMetaText" style="color:#64748b"></small>
+    </div>
+    <div style="text-align:right;font-size:11px;font-weight:800">
+      Score: <span id="printScoreText">0/0</span>
+    </div>
+  </div>
+  <div class="print-grid-2col" id="printBulletList"></div>
 </div>
 
 <!-- Palette Modal -->
@@ -330,31 +474,57 @@ const CSV_URLS = {
   PGT_ECONOMICS:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1778832576&single=true&output=csv",
   PGT_CIVICS:      "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1535064333&single=true&output=csv",
   PGT_GEOGRAPHY:   "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=394291620&single=true&output=csv",
-  PGT_HISTORY:     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1244640150&single=true&output=csv"
+  PGT_HISTORY:     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRYIUvFMetO03qYEsZQ89MdvNTM0X8fZMTRA1jXwoO5471CE7_JXXb2coN6xIyvgWBQMdaUYEVeV9V5/pub?gid=1244640150&single=true&output=csv",
+  
+  // TODO: इन तीन विषयों के सही gid लिंक पब्लिश करके यहाँ अपडेट करें
+  PGT_SANSKRIT:    "",
+  PGT_HOMESCIENCE: "",
+  PGT_SOCIOLOGY:   ""
 };
 
 const PGT_SUBJECTS = [
-  { id: "PGT_ECONOMICS", name: "अर्थशास्त्र (Economics)", desc: "व्यष्टि, समष्टि, लोक वित्त, बजट, मौद्रिक व भारतीय अर्थव्यवस्था", q: 90, time: 90, icon: "📈", totalMocks: 18 },
-  { id: "PGT_HINDI", name: "हिन्दी (Hindi)", desc: "साहित्य का इतिहास, काव्यशास्त्र, भाषाविज्ञान व व्याकरण", q: 90, time: 90, icon: "📖", totalMocks: 15 },
-  { id: "PGT_ENGLISH", name: "English Literature & Lang", desc: "British, American, Indian Literature, Grammar & Forms", q: 90, time: 90, icon: "🔤", totalMocks: 15 },
-  { id: "PGT_CIVICS", name: "नागरिक शास्त्र (Civics)", desc: "राजनीतिक सिद्धांत, विचारक, संविधान व लोक प्रशासन", q: 90, time: 90, icon: "⚖️", totalMocks: 15 },
-  { id: "PGT_GEOGRAPHY", name: "भूगोल (Geography)", desc: "भू-आकृति, जलवायु, समुद्र विज्ञान, मानव व भारत भूगोल", q: 90, time: 90, icon: "🌍", totalMocks: 15 },
-  { id: "PGT_HISTORY", name: "इतिहास (History)", desc: "प्राचीन, मध्यकालीन, आधुनिक भारत व विश्व इतिहास", q: 90, time: 90, icon: "📜", totalMocks: 15 }
+  { id: "PGT_ECONOMICS", name: "अर्थशास्त्र (Economics)", desc: "व्यष्टि, समष्टि, लोक वित्त, बजट, मौद्रिक व भारतीय अर्थव्यवस्था", q: 90, time: 90, icon: "📈", totalMocks: 18, enabled: true },
+  { id: "PGT_HINDI", name: "हिन्दी (Hindi)", desc: "साहित्य का इतिहास, काव्यशास्त्र, भाषाविज्ञान व व्याकरण", q: 90, time: 90, icon: "📖", totalMocks: 15, enabled: true },
+  { id: "PGT_ENGLISH", name: "English Literature & Lang", desc: "British, American, Indian Literature, Grammar & Forms", q: 90, time: 90, icon: "🔤", totalMocks: 15, enabled: true },
+  { id: "PGT_CIVICS", name: "नागरिक शास्त्र (Civics)", desc: "राजनीतिक सिद्धांत, विचारक, संविधान व लोक प्रशासन", q: 90, time: 90, icon: "⚖️", totalMocks: 15, enabled: true },
+  { id: "PGT_GEOGRAPHY", name: "भूगोल (Geography)", desc: "भू-आकृति, जलवायु, समुद्र विज्ञान, मानव व भारत भूगोल", q: 90, time: 90, icon: "🌍", totalMocks: 15, enabled: true },
+  { id: "PGT_HISTORY", name: "इतिहास (History)", desc: "प्राचीन, मध्यकालीन, आधुनिक भारत व विश्व इतिहास", q: 90, time: 90, icon: "📜", totalMocks: 15, enabled: true },
+  { id: "PGT_SANSKRIT", name: "संस्कृत (Sanskrit)", desc: "वैदिक एवं लौकिक साहित्य, व्याकरण, दर्शन व अनुवाद", q: 90, time: 90, icon: "🕉️", totalMocks: 15, enabled: false },
+  { id: "PGT_HOMESCIENCE", name: "गृह विज्ञान (Home Science)", desc: "आहार एवं पोषण, बाल विकास, वस्त्र विज्ञान व गृह प्रबंध", q: 90, time: 90, icon: "🏡", totalMocks: 15, enabled: false },
+  { id: "PGT_SOCIOLOGY", name: "समाजशास्त्र (Sociology)", desc: "सामाजिक विचारक, संरचना, परिवर्तन, जाति व भारतीय समाज", q: 90, time: 90, icon: "👥", totalMocks: 15, enabled: false }
 ];
 
 const SESSION_DAYS = 7;
+const CACHE_TTL_MS = 5 * 60 * 1000; // ⚡ 5-minute client-side CSV cache
 
 let currentExamConfig = null, questions = [], currentIndex = 0;
 let userAnswers = {}, markedForReview = {}, timeLeft = 0, timerInterval = null;
 let currentFilter = 'ALL', processedResults = null, activeSectionMode = "";
+let lastSaveTime = 0;
 
+// 🔁 Fetch With 5-Minute Cache and 'no-store' Fallback
 async function fetchWithRetry(url, retries = 3, delay = 1000) {
+  const cacheKey = 'cbt_cache_' + btoa(url).slice(0, 32);
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      const parsed = JSON.parse(cached);
+      if (Date.now() - parsed.ts < CACHE_TTL_MS && parsed.data) {
+        return parsed.data;
+      }
+    } catch(e) {}
+  }
+
   for (let i = 0; i < retries; i++) {
     try {
       const sep = url.includes('?') ? '&' : '?';
-      const res = await fetch(url + sep + '_t=' + Date.now());
+      const res = await fetch(url + sep + '_t=' + Date.now(), { cache: 'no-store' });
       if (!res.ok) throw new Error();
-      return await res.text();
+      const text = await res.text();
+      try {
+        localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data: text }));
+      } catch(e) {}
+      return text;
     } catch (err) {
       if (i === retries - 1) throw err;
       showToast(`नेटवर्क पुनः प्रयास (${i+1}/${retries})...`);
@@ -395,7 +565,7 @@ function changeFontSize(dir) {
   localStorage.setItem('cbt_font_size', size);
 }
 
-// 🔐 Instant Login (Sheet + Direct Master Bypass)
+// 🔐 Strict Sheet-Only Authentication
 async function verifyLoginSheet() {
   const mobile = document.getElementById('userMobile').value.trim();
   const pass = document.getElementById('userPass').value.trim();
@@ -405,20 +575,6 @@ async function verifyLoginSheet() {
   if (!/^[6-9]\d{9}$/.test(mobile) || !pass) {
     err.textContent = "कृपया 10 अंकों का मान्य मोबाइल व पासवर्ड दर्ज करें!";
     err.style.display = 'block'; return;
-  }
-
-  // ⚡ Master Admin Instant Bypass (Never fails)
-  if ((mobile === "9876543210" || mobile === "9140740167") && (pass === "Anurag2016@" || pass === "123456")) {
-    localStorage.setItem('cbt_pgt_session', JSON.stringify({
-      mobile: mobile,
-      name: "Anurag Sir",
-      isDemo: false,
-      time: new Date().toISOString()
-    }));
-    document.getElementById('loginOverlay').style.display = 'none';
-    showToast("🎉 स्वागत है, Anurag Sir!");
-    checkAuth();
-    return;
   }
 
   btn.textContent = "सत्यापन हो रहा है...";
@@ -433,7 +589,7 @@ async function verifyLoginSheet() {
       const cols = parseCSVLine(lines[i]);
       const sMobile = (cols[0] || '').replace(/\D/g, '');
       const sStatus = (cols[2] || '').toUpperCase();
-      const sPass = (cols[3] || 'Anurag2016@').trim();
+      const sPass = (cols[3] || '').trim();
 
       if (sMobile === mobile && sStatus === 'ACTIVE' && sPass === pass) {
         authorized = true; studentName = cols[1] || 'Student'; break;
@@ -501,6 +657,7 @@ function isDemoUser() {
 
 function goHome() {
   clearInterval(timerInterval);
+  document.getElementById('examProgressBar').style.width = '0%';
   document.getElementById('quizScreen').style.display = 'none';
   document.getElementById('resultScreen').style.display = 'none';
   document.getElementById('subjectSelectScreen').style.display = 'none';
@@ -531,14 +688,22 @@ function openSubjectSelection() {
   grid.innerHTML = '';
   PGT_SUBJECTS.forEach(sub => {
     const card = document.createElement('div');
-    card.className = 'select-card';
+    card.className = 'select-card' + (!sub.enabled ? ' locked' : '');
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', sub.enabled ? '0' : '-1');
     card.innerHTML = `
-      <div style="font-size:26px">${sub.icon}</div>
-      <div class="card-title">${sub.name}</div>
+      <div style="font-size:26px" aria-hidden="true">${sub.icon}</div>
+      <div class="card-title">${sub.name} ${!sub.enabled ? '🔒 (शीघ्र उपलब्ध)' : ''}</div>
       <div class="card-sub">${sub.desc}</div>
       <div style="font-size:11.5px;font-weight:800;color:var(--primary);margin-top:4px">${sub.totalMocks} Mocks (90 प्रश्न • 90 मिनट • -1/3)</div>
     `;
-    card.onclick = () => openSubjectMockList(sub);
+    card.onclick = () => {
+      if (!sub.enabled) {
+        showToast("⚠️ इस विषय की टेस्ट शीट अभी अपडेट हो रही है!");
+        return;
+      }
+      openSubjectMockList(sub);
+    };
     grid.appendChild(card);
   });
 }
@@ -570,6 +735,8 @@ function renderMockGrid(sheetKey, title, qCount, duration, negMark, totalCount =
     const locked = demo && i > 1;
     const card = document.createElement('div');
     card.className = 'select-card' + (locked ? ' locked' : '');
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', locked ? '-1' : '0');
 
     let specialBadge = "";
     let desc = "नया पैटर्न • 1/3 नेगेटिव • विस्तृत हल";
@@ -612,10 +779,15 @@ function renderMockGrid(sheetKey, title, qCount, duration, negMark, totalCount =
   }
 }
 
-// 🎯 Robust CBT Parser
+// 🎯 Ultra-Reliable Universal Parser with Validation & Deduplication
 async function startCBT(cfg, isResume = false) {
   currentExamConfig = cfg;
   const url = CSV_URLS[cfg.sheetKey] || CSV_URLS.PGT_GS;
+
+  if (!url) {
+    showToast("⚠️ इस विषय का डेटा लिंक अभी तैयार नहीं है!");
+    return;
+  }
 
   document.getElementById('mockListScreen').style.display = 'none';
   document.getElementById('quizScreen').style.display = 'block';
@@ -656,17 +828,25 @@ async function startCBT(cfg, isResume = false) {
 
     questions = [];
     const targetMock = cfg.mockNo || 1;
+    const seenQs = new Set(); // 🛡️ Deduplication filter
 
     for (let i = 1; i < lines.length; i++) {
       const c = parseCSVLine(lines[i]);
       if (!c || c.length < 4) continue;
 
       const rowMock = parseInt(String(c[mockCol] || '').replace(/\D/g, ''), 10);
-      
       if (!isNaN(rowMock) && rowMock !== targetMock) continue;
 
       const qText = (c[qCol] || '').trim();
-      if (!qText) continue;
+      const optA = (c[aCol] || '').trim();
+      const optB = (c[bCol] || '').trim();
+      const optC = (c[cCol] || '').trim();
+      const optD = (c[dCol] || '').trim();
+
+      // 🛡️ Data Validation: कम से कम प्रश्न और 2 विकल्प आवश्यक
+      if (!qText || (!optA && !optB)) continue;
+      if (seenQs.has(qText)) continue;
+      seenQs.add(qText);
 
       let correctAns = (c[ansCol] || 'A').trim().toUpperCase();
       const match = correctAns.match(/[A-D]/);
@@ -674,10 +854,10 @@ async function startCBT(cfg, isResume = false) {
 
       questions.push({
         q: qText,
-        a: (c[aCol] || '').trim(),
-        b: (c[bCol] || '').trim(),
-        c: (c[cCol] || '').trim(),
-        d: (c[dCol] || '').trim(),
+        a: optA,
+        b: optB,
+        c: optC,
+        d: optD,
         correct: correctAns,
         exp: (c[expCol] || '').trim(),
         topic: inferTopic(qText)
@@ -686,17 +866,23 @@ async function startCBT(cfg, isResume = false) {
       if (questions.length >= cfg.qCount) break;
     }
 
+    // Fallback: यदि Mock कॉलम खाली हो, तो क्रमानुसार उठाएं
     if (questions.length === 0) {
       const startIdx = (targetMock - 1) * cfg.qCount + 1;
       for (let i = startIdx; i < lines.length && questions.length < cfg.qCount; i++) {
         const c = parseCSVLine(lines[i]);
         const qText = (c[qCol] || c[2] || '').trim();
-        if (!qText) continue;
+        const optA = (c[aCol] || c[3] || '').trim();
+        const optB = (c[bCol] || c[4] || '').trim();
+
+        if (!qText || (!optA && !optB)) continue;
+        if (seenQs.has(qText)) continue;
+        seenQs.add(qText);
 
         questions.push({
           q: qText,
-          a: (c[aCol] || c[3] || '').trim(),
-          b: (c[bCol] || c[4] || '').trim(),
+          a: optA,
+          b: optB,
           c: (c[cCol] || c[5] || '').trim(),
           d: (c[dCol] || c[6] || '').trim(),
           correct: ((c[ansCol] || c[7] || 'A').match(/[A-D]/) || ['A'])[0],
@@ -729,7 +915,7 @@ async function startCBT(cfg, isResume = false) {
     startTimer();
     renderQuestion();
     renderPalette();
-    saveCurrentTestState();
+    saveCurrentTestState(true);
   } catch (err) {
     console.error("Sheet Loading Error:", err);
     showToast("शीट लोड करने में त्रुटि हुई। CSV लिंक जांचें।");
@@ -740,21 +926,28 @@ async function startCBT(cfg, isResume = false) {
 function inferTopic(qText = "") {
   const t = qText.toLowerCase();
   if (t.includes("बजट") || t.includes("घाटा") || t.includes("कर") || t.includes("fiscal")) return "लोक वित्त व बजट";
-  if (t.includes("मुद्रास्फीति") || t.includes("बैंक") || t.includes("rbi") || t.includes("रेपो")) return "मौद्रिक अर्थशास्त्र";
+  if (t.includes("मुद्रास्फीति") || t.includes("बैंक") || t.includes("rbi") || t.includes("रेपो")) return "मौद्रIC अर्थशास्त्र";
   if (t.includes("मांग") || t.includes("उदासीनता") || t.includes("एकाधिकार") || t.includes("लागत")) return "व्यष्टि अर्थशास्त्र";
   if (t.includes("व्यापार") || t.includes("टैरिफ") || t.includes("wto") || t.includes("विनिमय")) return "अंतरराष्ट्रीय व्यापार";
   if (t.includes("संविधान") || t.includes("अनुच्छेद") || t.includes("संसद") || t.includes("पंचायत")) return "संविधान व राजव्यवस्था";
   if (t.includes("नदी") || t.includes("पर्वत") || t.includes("जलवायु") || t.includes("जनगणना")) return "भूगोल";
   if (t.includes("इतिहास") || t.includes("गांधी") || t.includes("मुगल") || t.includes("क्रांति")) return "इतिहास";
   if (t.includes("माध्य") || t.includes("सहसंबंध") || t.includes("प्रतीपगमन") || t.includes("काई-वर्ग")) return "सांख्यिकी व अर्थमिति";
+  if (t.includes("shakespeare") || t.includes("milton") || t.includes("grammar") || t.includes("clause")) return "English";
+  if (t.includes("संधि") || t.includes("समास") || t.includes("साहित्य") || t.includes("काव्य")) return "हिन्दी";
   return "सामान्य अध्ययन";
 }
 
-function saveCurrentTestState() {
+// 🛡️ Optimized 20-Second Throttled Auto-Save
+function saveCurrentTestState(force = false) {
+  const now = Date.now();
+  if (!force && now - lastSaveTime < 20000) return;
   if (!currentExamConfig || !questions.length) return;
+
+  lastSaveTime = now;
   localStorage.setItem('cbt_pgt_saved', JSON.stringify({
     title: currentExamConfig.title, cfg: currentExamConfig,
-    userAnswers, markedForReview, currentIndex, timeLeft, timestamp: Date.now()
+    userAnswers, markedForReview, currentIndex, timeLeft, timestamp: now
   }));
 }
 
@@ -784,7 +977,7 @@ function startTimer() {
     timeLeft--;
     updateTimerDisplay();
     if (timeLeft === 300) showToast("⚠️ चेतावनी: केवल 5 मिनट शेष!");
-    if (timeLeft % 10 === 0) saveCurrentTestState();
+    if (timeLeft % 20 === 0) saveCurrentTestState();
   }, 1000);
 }
 
@@ -801,13 +994,23 @@ function renderQuestion() {
   document.getElementById('qCountText').textContent = `Q ${currentIndex + 1}/${questions.length}`;
   document.getElementById('questionText').textContent = q.q;
 
+  // 🌟 Live Progress Bar update
+  const attemptedCount = Object.keys(userAnswers).length;
+  const progressPct = questions.length > 0 ? (attemptedCount / questions.length) * 100 : 0;
+  document.getElementById('examProgressBar').style.width = progressPct + '%';
+
   const box = document.getElementById('optionsContainer');
   box.innerHTML = '';
   [{k:'A',t:q.a},{k:'B',t:q.b},{k:'C',t:q.c},{k:'D',t:q.d}].forEach(o => {
+    if (!o.t) return;
     const d = document.createElement('div');
     d.className = 'option-item' + (userAnswers[currentIndex] === o.k ? ' selected' : '');
-    d.innerHTML = `<div class="opt-prefix">${o.k}</div><div style="flex:1">${o.t || '—'}</div>`;
-    d.onclick = () => { userAnswers[currentIndex] = o.k; renderQuestion(); renderPalette(); saveCurrentTestState(); };
+    d.setAttribute('role', 'radio');
+    d.setAttribute('aria-checked', userAnswers[currentIndex] === o.k ? 'true' : 'false');
+    d.setAttribute('tabindex', '0');
+    d.innerHTML = `<div class="opt-prefix">${o.k}</div><div style="flex:1">${o.t}</div>`;
+    d.onclick = () => { selectOption(o.k); };
+    d.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') selectOption(o.k); };
     box.appendChild(d);
   });
 
@@ -821,6 +1024,13 @@ function renderQuestion() {
   document.getElementById('btnSubmit').style.display = isLast ? 'block' : 'none';
 }
 
+function selectOption(key) {
+  userAnswers[currentIndex] = key;
+  renderQuestion();
+  renderPalette();
+  saveCurrentTestState();
+}
+
 function navQuestion(dir) {
   currentIndex = Math.max(0, Math.min(questions.length - 1, currentIndex + dir));
   renderQuestion();
@@ -828,7 +1038,9 @@ function navQuestion(dir) {
 
 function toggleReviewCurrent() {
   markedForReview[currentIndex] = !markedForReview[currentIndex];
-  renderQuestion(); renderPalette(); saveCurrentTestState();
+  renderQuestion();
+  renderPalette();
+  saveCurrentTestState();
   showToast(markedForReview[currentIndex] ? "🟡 प्रश्न रिव्यू के लिए चिह्नित" : "रिव्यू हटाया गया");
 }
 
@@ -852,6 +1064,19 @@ function renderPalette() {
   });
 }
 
+window.addEventListener('keydown', e => {
+  if (document.getElementById('quizScreen').style.display !== 'block') return;
+  if (['INPUT','TEXTAREA'].includes(e.target.tagName)) return;
+  const k = e.key.toUpperCase();
+  if (['1','A'].includes(k)) selectOption('A');
+  else if (['2','B'].includes(k)) selectOption('B');
+  else if (['3','C'].includes(k)) selectOption('C');
+  else if (['4','D'].includes(k)) selectOption('D');
+  else if (k === 'ARROWLEFT') navQuestion(-1);
+  else if (k === 'ARROWRIGHT' || k === 'ENTER') navQuestion(1);
+  else if (k === 'M') toggleReviewCurrent();
+});
+
 function confirmFinishExam() {
   if (confirm("क्या आप निश्चित रूप से टेस्ट सबमिट करना चाहते हैं?")) finishExam();
 }
@@ -864,6 +1089,9 @@ function finishExam() {
   document.getElementById('timerBadge').style.display = 'none';
   document.getElementById('btnPaletteOpen').style.display = 'none';
   document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('examProgressBar').style.width = '100%';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // 🌟 Auto-scroll to top
 
   let correct = 0, wrong = 0, skipped = 0;
   const topicStats = {};
@@ -911,6 +1139,7 @@ function finishExam() {
   });
 
   renderSolutionCards();
+  setupPrintReport();
 }
 
 function filterSolutions(mode, btn) {
@@ -946,7 +1175,7 @@ function renderSolutionCards() {
     card.innerHTML = `
       <div style="font-weight:800;font-size:13.5px;margin-bottom:4px">Q${idx + 1}. ${q.q}</div>
       <div style="font-size:12px;margin-bottom:4px">
-        <strong>आपका उत्तर:</strong> ${ans || 'छोड़ दिया'} | 
+        <strong>आपका उत्तर:</strong> ${ans || '<span style="color:var(--warning)">[छूटा]</span>'} | 
         <strong style="color:var(--success)">सही उत्तर: (${q.correct})</strong>
         ${isRev ? '<span style="color:var(--review);font-weight:800;margin-left:6px">[रिव्यू]</span>' : ''}
       </div>
@@ -963,11 +1192,37 @@ function renderSolutionCards() {
 
 function shareScoreWhatsApp() {
   if (!processedResults || !currentExamConfig) return;
-  const text = `🎯 *UPESSC PGT Mock Result*\n📝 *${currentExamConfig.title}*\n🏆 स्कोर: *${processedResults.finalScore} / ${processedResults.totalMarks}* (${processedResults.pct}%)\n✅ सही: ${processedResults.correct} | ❌ गलत: ${processedResults.wrong}\n🔥 Team Anurag PGT Portal`;
+  const text = `🎯 *UPESSC PGT Mock Result*\n📝 *${currentExamConfig.title}*\n🏆 स्कोर: *${processedResults.finalScore} / ${processedResults.totalMarks}* (${processedResults.pct}%)\n✅ सही: ${processedResults.correct} | ❌ गलत: ${processedResults.wrong} | ⚠️ छूटे: ${processedResults.skipped}\n🔥 Team Anurag PGT Portal`;
   window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
 }
 
+// 🖨️ Super Compact Incorrect & Skipped Questions Sheet
+function setupPrintReport() {
+  if (!processedResults || !currentExamConfig) return;
+  document.getElementById('printMetaText').textContent = `${currentExamConfig.title} | Team Anurag PGT Revision`;
+  document.getElementById('printScoreText').textContent = `${processedResults.finalScore}/${processedResults.totalMarks} (${processedResults.pct}%)`;
+
+  const pList = document.getElementById('printBulletList');
+  pList.innerHTML = '';
+  questions.forEach((q, idx) => {
+    const ans = userAnswers[idx];
+    if (ans !== q.correct) {
+      const isSkipped = !ans;
+      pList.innerHTML += `<div class="bullet-q-card" style="border-left: 3px solid ${isSkipped ? '#d97706' : '#dc2626'}">
+        <strong>Q${idx + 1}. ${q.q}</strong><br>
+        आपका चयन: ${ans ? ans : '<strong>[छूटा]</strong>'} | सही उत्तर: <strong>(${q.correct})</strong><br>
+        <small style="color:#475569">${q.exp ? 'हल: ' + q.exp : ''}</small>
+      </div>`;
+    }
+  });
+}
+
 window.onload = function() {
+  // Font Size & Dark Mode state restore
+  const savedFont = localStorage.getItem('cbt_font_size');
+  if (savedFont) {
+    document.documentElement.style.setProperty('--base-font-size', savedFont + 'px');
+  }
   if (localStorage.getItem('cbt_dark_mode') === 'true') {
     document.body.classList.add('dark-mode');
     document.getElementById('darkModeBtn').textContent = '☀️';

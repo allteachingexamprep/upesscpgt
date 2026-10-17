@@ -96,9 +96,6 @@ body { background: var(--bg); color: var(--text-main); padding-bottom: 60px; min
 .hero-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
 .hero-card.gs-theme { background: var(--gs-gradient); box-shadow: 0 8px 22px rgba(30,58,138,0.25); }
 .hero-card.sub-theme { background: var(--sub-gradient); box-shadow: 0 8px 22px rgba(6,95,70,0.25); }
-.hero-card .hero-icon { font-size: 32px; margin-bottom: 6px; }
-.hero-card .hero-title { font-size: 17px; font-weight: 900; }
-.hero-card .hero-desc { font-size: 12px; opacity: 0.92; margin-top: 4px; line-height: 1.4; }
 
 .select-card { background: var(--card); border: 1.5px solid var(--border); border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 6px; cursor: pointer; transition: 0.15s; }
 .select-card:hover:not(.locked) { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(79,70,229,0.08); }
@@ -495,7 +492,7 @@ const PGT_SUBJECTS = [
 ];
 
 const SESSION_DAYS = 7;
-const CACHE_TTL_MS = 5 * 60 * 1000; // ⚡ 5-minute client-side CSV cache
+const CACHE_TTL_MS = 5 * 60 * 1000;
 
 let currentExamConfig = null, questions = [], currentIndex = 0;
 let userAnswers = {}, markedForReview = {}, timeLeft = 0, timerInterval = null;
@@ -565,7 +562,16 @@ function changeFontSize(dir) {
   localStorage.setItem('cbt_font_size', size);
 }
 
-// 🔐 Strict Sheet-Only Authentication
+function openSyllabusModal() {
+  document.getElementById('sylOverlay').style.display = 'block';
+  document.getElementById('sylModal').style.display = 'flex';
+}
+function closeSyllabusModal() {
+  document.getElementById('sylOverlay').style.display = 'none';
+  document.getElementById('sylModal').style.display = 'none';
+}
+
+// 🔐 Instant Login (Direct Master Bypass + Sheet Fallback)
 async function verifyLoginSheet() {
   const mobile = document.getElementById('userMobile').value.trim();
   const pass = document.getElementById('userPass').value.trim();
@@ -574,7 +580,22 @@ async function verifyLoginSheet() {
 
   if (!/^[6-9]\d{9}$/.test(mobile) || !pass) {
     err.textContent = "कृपया 10 अंकों का मान्य मोबाइल व पासवर्ड दर्ज करें!";
-    err.style.display = 'block'; return;
+    err.style.display = 'block'; 
+    return;
+  }
+
+  // ⚡ आपातकालीन मास्टर लॉगिन बाईपास (शीट सिंक में देरी होने पर भी यह कभी फेल नहीं होगा)
+  if ((mobile === "9876543210" || mobile === "9140740167") && (pass === "Anurag2016@" || pass === "123456")) {
+    localStorage.setItem('cbt_pgt_session', JSON.stringify({
+      mobile: mobile,
+      name: "Anurag Sir",
+      isDemo: false,
+      time: new Date().toISOString()
+    }));
+    document.getElementById('loginOverlay').style.display = 'none';
+    showToast("🎉 स्वागत है, Anurag Sir!");
+    checkAuth();
+    return;
   }
 
   btn.textContent = "सत्यापन हो रहा है...";
@@ -592,7 +613,9 @@ async function verifyLoginSheet() {
       const sPass = (cols[3] || '').trim();
 
       if (sMobile === mobile && sStatus === 'ACTIVE' && sPass === pass) {
-        authorized = true; studentName = cols[1] || 'Student'; break;
+        authorized = true; 
+        studentName = cols[1] || 'Student'; 
+        break;
       }
     }
 
@@ -843,7 +866,6 @@ async function startCBT(cfg, isResume = false) {
       const optC = (c[cCol] || '').trim();
       const optD = (c[dCol] || '').trim();
 
-      // 🛡️ Data Validation: कम से कम प्रश्न और 2 विकल्प आवश्यक
       if (!qText || (!optA && !optB)) continue;
       if (seenQs.has(qText)) continue;
       seenQs.add(qText);
@@ -866,7 +888,6 @@ async function startCBT(cfg, isResume = false) {
       if (questions.length >= cfg.qCount) break;
     }
 
-    // Fallback: यदि Mock कॉलम खाली हो, तो क्रमानुसार उठाएं
     if (questions.length === 0) {
       const startIdx = (targetMock - 1) * cfg.qCount + 1;
       for (let i = startIdx; i < lines.length && questions.length < cfg.qCount; i++) {
@@ -926,7 +947,7 @@ async function startCBT(cfg, isResume = false) {
 function inferTopic(qText = "") {
   const t = qText.toLowerCase();
   if (t.includes("बजट") || t.includes("घाटा") || t.includes("कर") || t.includes("fiscal")) return "लोक वित्त व बजट";
-  if (t.includes("मुद्रास्फीति") || t.includes("बैंक") || t.includes("rbi") || t.includes("रेपो")) return "मौद्रIC अर्थशास्त्र";
+  if (t.includes("मुद्रास्फीति") || t.includes("बैंक") || t.includes("rbi") || t.includes("रेपो")) return "मौद्रिक अर्थशास्त्र";
   if (t.includes("मांग") || t.includes("उदासीनता") || t.includes("एकाधिकार") || t.includes("लागत")) return "व्यष्टि अर्थशास्त्र";
   if (t.includes("व्यापार") || t.includes("टैरिफ") || t.includes("wto") || t.includes("विनिमय")) return "अंतरराष्ट्रीय व्यापार";
   if (t.includes("संविधान") || t.includes("अनुच्छेद") || t.includes("संसद") || t.includes("पंचायत")) return "संविधान व राजव्यवस्था";
@@ -1091,7 +1112,7 @@ function finishExam() {
   document.getElementById('resultScreen').style.display = 'block';
   document.getElementById('examProgressBar').style.width = '100%';
 
-  window.scrollTo({ top: 0, behavior: 'smooth' }); // 🌟 Auto-scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 
   let correct = 0, wrong = 0, skipped = 0;
   const topicStats = {};
@@ -1218,7 +1239,6 @@ function setupPrintReport() {
 }
 
 window.onload = function() {
-  // Font Size & Dark Mode state restore
   const savedFont = localStorage.getItem('cbt_font_size');
   if (savedFont) {
     document.documentElement.style.setProperty('--base-font-size', savedFont + 'px');
